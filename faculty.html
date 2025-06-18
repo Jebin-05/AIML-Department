@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI & ML Faculties page | Karunya Institute of Technology & Sciences</title>
+   <link rel="icon" type="image/png" href="images\Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+ <style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6fa;
+    color: #002244;
+  }
+
+  header {
+    background-color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+  }
+
+  .dept-logo {
+    height: 60px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #002244;
+    font-weight: 600;
+  }
+
+  nav a:hover,
+  nav a[aria-current="page"] {
+    color: #ffd700;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+    color: #003c80;
+  }
+
+  .faculty-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .faculty-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .faculty-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .faculty-info {
+    flex-grow: 1;
+    min-width: 200px;
+  }
+
+  .faculty-info h4 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .faculty-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  .view-profile {
+    margin-left: auto;
+    background-color: #003c80;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .view-profile:hover {
+    background-color: #0056b3;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #002244;
+    color: #fff;
+    margin-top: 40px;
+    font-size: 0.95rem;
+  }
+
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 25px 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    color: #002244;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #888;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .modal-close:hover {
+    color: #003c80;
+  }
+
+  .modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+  }
+
+  .modal-content p {
+    margin: 8px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .modal-content strong {
+    color: #0056b3;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0 0;
+    }
+
+    .faculty-container {
+      grid-template-columns: 1fr;
+      margin: 30px 10px;
+      padding: 0;
+    }
+
+    .faculty-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .faculty-info {
+      text-align: center;
+    }
+
+    .view-profile {
+      margin: 15px 0 0 0;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 30px;
+    }
+
+    .modal-content {
+      margin: 20% auto;
+      width: 90%;
+      padding: 20px;
+    }
+
+    .modal-content h3 {
+      font-size: 1.3rem;
+    }
+
+    .modal-content p {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <<div class="ticker">
+      <a href="https://admissions.karunya.app/" target="_blank">
+        🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+      </a>
+    </div>
+
+  <style>
+    .ticker {
+      background-color: #002244;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ticker a {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 30s linear infinite;
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #002244;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Dropdown specific styling */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 35px;
+  left: 0;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
+  color: #002244;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: #002244;
+}
+
+  </style>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept Logo" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="faculty.html" aria-current="page">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+         <li><a href="facilities.html">Facilities</a></li>
+         <li class="dropdown">
+      <a href="#" class="dropbtn">Research</a>
+      <div class="dropdown-content">
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+      </div>
+    </li>
+         <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h2>DIVISION OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING</h2>
+
+  <div class="faculty-container">
+    <!-- Existing Faculty -->
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. D. Sujitha Juliet",
+      "designation":"Associate Professor & HOD",
+      "email":"sujitha@karunya.edu",
+      "phone":"+91-9487846550",
+      "education":"Ph.D in Computer Science",
+      "research":"Intelligent models, Medical Image, Analysis Applied Natural Language Processing, Indoor Navigation system" 
+    }'>
+      <img src="images\Sujitha.jpg" alt="Dr. Sujitha Juliet" />
+      <div class="faculty-info">
+        <h4>Dr. D. Sujitha Juliet</h4>
+        <p>Associate Professor & HOD</p>
+        <p>sujitha@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. J Dinesh Peter, M.Tech., Ph.D",
+      "designation":"Professor & Head (International Affairs)",
+      "email":"dineshpeter@karunya.edu",
+      "phone":"+91-9487846543",
+      "education":"Ph.D in Artificial Intelligence",
+      "research":"Digital Image Processing, Machine Learning Models"
+    }'>
+      <img src="images\Dinesh.jpg" alt="Dr. J Dinesh Peter" />
+      <div class="faculty-info">
+        <h4>Dr. J Dinesh Peter, M.Tech., Ph.D</h4>
+        <p>Professor & Head (International Affairs)</p>
+        <p>dineshpeter@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. T. Jemima Jebaseeli",
+      "designation":"Associate Professor",
+      "email":"jemima_jeba@karunya.edu",
+      "phone":"+91-9487896556",
+      "education":"Ph.D in Data Science",
+      "research":"Machine Learning, Deep Learning, Artificial Intelligence, Medical Image Processing, Computer Vision, Data mining, Data Science"
+    }'>
+      <img src="images\Jemima.png" alt="Dr. Jemima" />
+      <div class="faculty-info">
+        <h4>Dr. T. Jemima Jebaseeli</h4>
+        <p>Associate Professor</p>
+        <p>jemima_jeba@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. Jangam Ebenezer",
+      "designation":"Associate Professor",
+      "email":"ebenezerj@karunya.edu",
+      "phone":"+91-7013344365",
+      "education":"Ph.D in Computer Vision",
+      "research":"AIML for Medical Image Processing, Healthcare, Food & Nutrition, AIML for Climate Change, Agriculture"
+    }'>
+      <img src="images\Jangam.jpg" alt="Dr. Ebenezer" />
+      <div class="faculty-info">
+        <h4>Dr. Jangam Ebenezer</h4>
+        <p>Associate Professor</p>
+        <p>ebenezerj@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. J. Praveen Chandar, B.E., M.E., Ph.D",
+      "designation":"Assistant Professor",
+      "email":"praveenchandar@karunya.edu",
+      "phone":"+91-9786491044",
+      "education":"Ph.D in AI & Robotics",
+      "research":"Artificial intelligence and Machine learning, Cloud Computing, Cyber Security and Block chain, Big data Analytics"
+    }'>
+      <img src="images\Praveen.webp" alt="Dr. Praveen Chandar" />
+      <div class="faculty-info">
+        <h4>Dr. J. Praveen Chandar, B.E., M.E., Ph.D</h4>
+        <p>Assistant Professor</p>
+        <p>praveenchandar@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. D. Narmadha",
+      "designation":"Assistant Professor",
+      "email":"narmadha@karunya.edu",
+      "phone":"+91-9843482575",
+      "education":"Ph.D in AI",
+      "research":"Machine Learning, Deep Learning, Computer Vision"
+    }'>
+      <img src="images\Narmadha.jpg" alt="Dr. D. Narmadha" />
+      <div class="faculty-info">
+        <h4>Dr. D. Narmadha</h4>
+        <p>Assistant Professor</p>
+        <p>narmadha@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. Sebastian Terence",
+      "designation":"Assistant Professor",
+      "email":"sebastian@karunya.edu",
+      "phone":"+91-9486214010",
+      "education":"Ph.D in Computer Science",
+      "research":"Deep Learning, Machine Learning, Internet of Things, Artificial Intelligence"
+    }'>
+      <img src="images\Sebastian.jpg" alt="Dr. Sebastian Terence" />
+      <div class="faculty-info">
+        <h4>Dr. Sebastian Terence</h4>
+        <p>Assistant Professor</p>
+        <p>sebastian@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. Emmanuel Joy",
+      "designation":"Assistant Professor",
+      "email":"emmanueljoy@karunya.edu",
+      "phone":"+91-9486133392",
+      "education":"Ph.D in AI",
+      "research":"Computer Vision, Image and Video Processing, Augmented Reality and Virtual Reality."
+    }'>
+      <img src="images\Joy.webp" alt="Dr. Emmanuel Joy" />
+      <div class="faculty-info">
+        <h4>Dr. Emmanuel Joy</h4>
+        <p>Assistant Professor</p>
+        <p>emmanueljoy@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Mrs. SOPHIA S",
+      "designation":"Assistant Professor",
+      "email":"sophia@karunya.edu",
+      "phone":"+91-8807806935",
+      "education":"M.Tech in AI",
+      "research":"Security in Drones, Cloud Computing"
+    }'>
+      <img src="images\Sophia.jpg" alt="Mrs. Sophia S" />
+      <div class="faculty-info">
+        <h4>Mrs. SOPHIA S</h4>
+        <p>Assistant Professor</p>
+        <p>sophia@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Mrs. P. Joyce Beryl Princess",
+      "designation":"Assistant Professor",
+      "email":"joyceberyl@karunya.edu",
+      "phone":"+91-9952000519",
+      "education":"M.Tech in AI",
+      "research":"Artificial Intelligence and Machine Learning, Computer Vision, Natural Language Processing"
+    }'>
+      <img src="images\Joyce.jpg" alt="Mrs. Joyce Beryl Princess" />
+      <div class="faculty-info">
+        <h4>Mrs. P. Joyce Beryl Princess</h4>
+        <p>Assistant Professor</p>
+        <p>joyceberyl@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Mrs. ANGELIN JEBA P",
+      "designation":"Assistant Professor",
+      "email":"angelinjeba@karunya.edu",
+      "phone":"+91-7094687611",
+      "education":"M.Tech in AI",
+      "research":"Deep Learnings, Bio-medical image Processing"
+    }'>
+      <img src="images\Jeba.webp" alt="Mrs. Angelin Jeba" />
+      <div class="faculty-info">
+        <h4>Mrs. ANGELIN JEBA P</h4>
+        <p>Assistant Professor</p>
+        <p>angelinjeba@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+
+    <div class="faculty-card" data-profile='{
+      "name":"Dr. R. Vignesh",
+      "designation":"Assistant Professor",
+      "email":"vignesh@karunya.edu",
+      "phone":"+91-6382946514",
+      "education":"Ph.D in AI",
+      "research":"Machine Learning and Application, Natural Language Processing, Deep Learning, Reinforcement Learningy, Computer Vision, Custom Vision, Cloud Computing, Computer Programming"
+    }'>
+      <img src="images\Vignesh.jpg" alt="Dr. R. Vignesh" />
+      <div class="faculty-info">
+        <h4>Dr. R. Vignesh</h4>
+        <p>Assistant Professor</p>
+        <p>vignesh@karunya.edu</p>
+      </div>
+      <button class="view-profile">View Profile</button>
+    </div>
+  </div>
+
+  <div id="profileModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Profile Modal">&times;</button>
+      <h3 id="modalTitle">Faculty Name</h3>
+      <p><strong>Designation:</strong> <span id="modalDesignation"></span></p>
+      <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="modalPhone"></span></p>
+      <p><strong>Education:</strong> <span id="modalEducation"></span></p>
+      <p><strong>Research Interests:</strong> <span id="modalResearch"></span></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Division of AIML , Karunya Institute of Technology & Sciences
+  </footer>
+
+  <script>
+    
+    const modal = document.getElementById('profileModal');
+    const modalCloseBtn = modal.querySelector('.modal-close');
+
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesignation = document.getElementById('modalDesignation');
+    const modalEmail = document.getElementById('modalEmail');
+    const modalPhone = document.getElementById('modalPhone');
+    const modalEducation = document.getElementById('modalEducation');
+    const modalResearch = document.getElementById('modalResearch');
+
+    document.querySelectorAll('.view-profile').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.faculty-card');
+        const profileData = JSON.parse(card.getAttribute('data-profile'));
+
+        modalTitle.textContent = profileData.name;
+        modalDesignation.textContent = profileData.designation;
+        modalEmail.textContent = profileData.email;
+        modalPhone.textContent = profileData.phone;
+        modalEducation.textContent = profileData.education;
+        modalResearch.textContent = profileData.research;
+
+        modal.style.display = 'block';
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+    });
+
+    
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>

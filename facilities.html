@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI & ML Facilities | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #002244;
+      background-color: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .ticker {
+      background-color: #002244;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ticker a {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 30s linear infinite;
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .dept-logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #002244;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #ffd700;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 15px rgba(0, 35, 102, 0.1);
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .facility-card {
+      background: #f0f4f8;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      text-align: center;
+    }
+
+    .facility-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #002244;
+    }
+
+    .facility-card p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      main {
+        padding: 25px 15px;
+      }
+
+      .facility-card {
+        padding: 20px;
+      }
+    }
+    nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #002244;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Dropdown specific styling */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 35px;
+  left: 0;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
+  color: #002244;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: #002244;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="facilities.html" aria-current="page">Facilities</a></li>
+        <li class="dropdown">
+      <a href="#" class="dropbtn">Research</a>
+      <div class="dropdown-content">
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+      </div>
+    </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Facilities at AIML Department</h2>
+    <p>Empowering students with hands-on experience and world-class infrastructure to innovate in AI & ML.</p>
+
+       <div class="facility-card">
+        <h4>Division Library</h4>
+        <p>The Division Library provides the cognitive and intellectual pursuit of the division towards academic and research activities. The library is well equipped with latest collection of books, magazines and reference materials covering all subjects in the area of computer science. The library has around 1957 volumes of text books, reference books and complementary sample books. Books on Artificial Intelligence, Deep Learning, Data Analytics, Advanced computing, Database Management, Programming and Industry campus connect books from Industries such as Infosys, Novell, SUSE, Oracle etc are available for lending and as references. The library has a well-equipped reading facility. Every year the latest books and most recent editions are procured as per the requests and requirement of the faculty and students.</p>
+      </div>
+      <div class="facility-card">
+        <h4>IoT Centre for Artificial Intelligence</h4>
+        <p>Internet of Things (IoT) lab provides an excellent infrastructure to the young IT minds to nurture their innovative ideas, problem solving skills focused on the direction of societal needs. It is an ideal place for an active learning through real world environment. The main objective of this lab is to press on the student towards building of smart and intelligent IoT solutions. This lab is equipped with test bench, connectivity devices, industrial sensors, handheld machines, RFID tags, digital controllers etc to gain insight and understanding of the real world experience. The main focus is on data ingestion, data acquisition, machine learning, visualization and mobility.</p>
+        
+      </div>
+      <div class="facility-card">
+        <h4>Software development Lab</h4>
+        <p>The Software Product Development Lab of the division of Computer Sciences and Engineering was established with the clear objective of encouraging the students to develop software as products following the software engineering principles. The interested students have grouped themselves in teams and are actively involved in developing software products.</p>
+        </div>
+     
+      <div class="facility-card">
+        <h4>CISCO Networking Academy</h4>
+        <p>The Division of Computer Science and Engineering had signed MoU with CISCO Systems, Bangalore on 5-11-2007. The CISCO centre of excellence on Advanced Networking available in the division provides world class networking infrastructure. The faculty members have been constantly trained by CISCO Networking Academy, to offer the latest industry relevant networking curriculum. The Division is offering the certification course CCNA (Cisco Certified Network Associate) to the students since 2007. The course provides practical hands-on experience to the students on networking concepts during the 110 hours of the course.</p>
+      </div>
+      <div class="facility-card">
+        <h4>SUSE Centre of Excellence for Cloud Computing</h4>
+        <p>The division of CSE has established a relationship and signed the first agreement with Novell(SUSE was a Partner) in the year 2010. Because of the tremendous academic support and guidance by Novell, the CSE division started offering SUSE Certified Administrator (SCA) in Enterprise Linux certification program in 2010. Based on the fruitful partnership in the past years, the relationship was further strengthened as Novell started supporting our M.Tech program in the year 2014. Besides, a Center of Excellence for Cloud Computing was established in KITS premises.</p>
+      </div>
+      <div class="facility-card">
+        <h4>IBM Big Data software Centre of Excellence</h4>
+        <p>The IBM Big Data Software Centre of Excellence is an initiative with a vision to enable the students and faculty in higher education to gain the relevant skills in Big Data Analytics, experiential learning and to make them adept with latest Big Data technology and tools. Karunya Institute of Technology and Sciences signed an MoU with IBM India Pvt Ltd on August 2015. The objective of this collaboration is to have a number of students graduating from the institution skilled in industry requirements, using best-in-class IBM Software in Big Data Analytics..</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+</body>
+</html>

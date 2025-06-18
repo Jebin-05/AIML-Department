@@ -1,0 +1,205 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #090d1f, #1f2541);
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+header {
+  background: rgba(0, 0, 50, 0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00ffff;
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1534723328310-e82dad3ee43f') no-repeat center center/cover;
+}
+
+.hero-text {
+  background: rgba(0, 0, 50, 0.6);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+/* Sections */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1000px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.dark-glass {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1000px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Faculty Cards */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.faculty-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.faculty-card:hover {
+  transform: scale(1.05);
+}
+
+.faculty-card h3 {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.faculty-card button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #00bcd4;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.faculty-card button:hover {
+  background-color: #00ffff;
+}
+
+/* Events */
+.event-list {
+  list-style: none;
+  padding-top: 20px;
+  font-size: 18px;
+}
+
+/* Contact */
+a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+footer {
+  background: rgba(0, 0, 50, 0.5);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+/* Flash News Ticker */
+.ticker-container {
+  width: 100%;
+  background: #ff0066;
+  color: white;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
+  padding-left: 100%;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Offset for header due to fixed ticker */
+header {
+  margin-top: 40px;
+}
+
+.dept-logo {
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 10px auto;
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI & ML Academics page | Karunya Institute of Technology & Sciences</title>
+   <link rel="icon" type="image/png" href="images\Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+ <style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #002244;
+    background: url('images/Academics.png') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: none;
+  }
+
+  .ticker {
+    background-color: #002244;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .ticker a {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 30s linear infinite;
+    color: #ffd700;
+    text-decoration: none;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  header {
+    background-color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+
+  .dept-logo {
+    height: 70px;
+    width: auto;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #002244;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover,
+  nav a[aria-current="page"] {
+    color: #ffd700;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 40px auto 60px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 15px rgba(0, 35, 102, 0.1);
+    color: #002244;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  main h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  #pdf-preview {
+  width: 100%;
+  height: 400px;  
+  max-height: 80vh; 
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 35, 102, 0.15);
+}
+
+
+  #download-btn {
+    display: inline-block;
+    background-color: #002244;
+    color: #ffd700;
+    font-weight: 700;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+
+  #download-btn:hover {
+    background-color: #001933;
+  }
+
+  footer {
+    background-color: #002244;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 760px) {
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      font-size: 15px;
+    }
+
+    .dept-logo {
+      height: 55px;
+    }
+
+    main {
+      margin: 20px 10px 40px 10px;
+      padding: 25px 20px;
+      font-size: 1rem;
+    }
+
+    main h2 {
+      font-size: 1.5rem;
+    }
+
+    #pdf-preview {
+      height: 400px;
+    }
+
+    #download-btn {
+      width: 100%;
+      padding: 12px 0;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    main {
+      padding: 20px 15px;
+    }
+
+    #pdf-preview {
+      height: 300px;
+    }
+
+    main h2 {
+      font-size: 1.3rem;
+    }
+  }
+  nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #002244;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Dropdown specific styling */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 35px;
+  left: 0;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
+  color: #002244;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: #002244;
+}
+
+</style>
+
+</head>
+<body>
+
+  <div class="ticker">
+      <a href="https://admissions.karunya.app/" target="_blank">
+        🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+      </a>
+    </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html" aria-current="page">Academics</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+       <li><a href="facilities.html">Facilities</a></li>
+       <li class="dropdown">
+      <a href="#" class="dropbtn">Research</a>
+      <div class="dropdown-content">
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+      </div>
+    </li>
+       <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Academics Overview</h2>
+    <p>
+      The Division of Artificial Intelligence and Machine Learning offers a comprehensive and cutting-edge curriculum that equips students with deep knowledge and practical skills in AI & ML. Our academic programs focus on theory, innovation, and real-world applications to prepare future leaders in the AI domain.
+    </p>
+
+    <iframe id="pdf-preview" src="B.Tech - AI & ML Brochure 24.pdf" type="application/pdf"></iframe>
+
+    <a id="download-btn" href="B.Tech - AI & ML Brochure 24.pdf" download="Academics_Brochure.pdf">Download Academics Brochure (PDF)</a>
+  </main>
+
+  <footer>
+    <p>&copy; Division of AIML , Karunya Institute of Technology & Sciences </p>
+  </footer>
+
+</body>
+</html>

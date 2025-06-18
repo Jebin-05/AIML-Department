@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Downloads | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #002244;
+      background-color: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .ticker {
+      background-color: #002244;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ticker a {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 30s linear infinite;
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .dept-logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #002244;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #ffd700;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 15px rgba(0, 35, 102, 0.1);
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .download-list {
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .download-item {
+  background: #ffffff;
+  border-left: 6px solid #ffd700;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 35, 102, 0.07);
+  transition: all 0.3s ease;
+}
+
+.download-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 35, 102, 0.12);
+  background: #f9f9f9;
+}
+
+.download-item a {
+  text-decoration: none;
+  color: #002244;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.download-item a::before {
+  content: '📥 ';
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+.download-list {
+  animation: fadeIn 0.9s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      main {
+        padding: 25px 15px;
+      }
+
+      .download-item {
+        padding: 15px;
+      }
+    }
+    nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #002244;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Dropdown specific styling */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 35px;
+  left: 0;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
+  color: #002244;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: #002244;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li class="dropdown">
+      <a href="#" class="dropbtn">Research</a>
+      <div class="dropdown-content">
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+      </div>
+    </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html" aria-current="page">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  <h2>
+    Downloadable Resources
+  </h2>
+  <hr style="border: none; height: 4px; width: 100px; background: #ffd700; margin: 0 auto 30px auto; border-radius: 10px;" />
+  <p style="color: #333; font-size: 1.1rem; max-width: 700px; margin: 0 auto 40px auto;">
+    The following official documents are available for download. Please ensure you review the requirements before submission.
+  </p>
+
+  <div class="download-list">
+    <div class="download-item">
+      <a href="Bonafide Reqest form-Dept.pdf" target="_blank" download>
+         Bonafide Request Form
+      </a>
+    </div>
+    <div class="download-item">
+      <a href="LOR form 2019.pdf" target="_blank" download>
+         Letter of Recommendation Form
+      </a>
+    </div>
+    <div class="download-item">
+      <a href="FSP.pdf" target="_blank" download>
+         Zeroth Review Form – Full Semester Project
+      </a>
+    </div>
+    <div class="download-item">
+      <a href="HSP.pdf" target="_blank" download>
+         Zeroth Review Form – Half Semester Project
+      </a>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+</body>
+</html>

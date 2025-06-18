@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publications | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #002244;
+      background-color: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .ticker {
+      background-color: #002244;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ticker a {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 30s linear infinite;
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .dept-logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #002244;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #ffd700;
+      border-bottom: 2px solid #ffd700;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      top: 35px;
+      left: 0;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .dropdown-content li {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      font-weight: 500;
+      font-size: 15px;
+      white-space: nowrap;
+      border-bottom: 1px solid #eee;
+      color: #002244;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+      color: #002244;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 15px rgba(0, 35, 102, 0.1);
+    }
+
+    .year-buttons {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .year-buttons button {
+      background-color: #002244;
+      color: white;
+      padding: 10px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .year-buttons button:hover {
+      background-color: #ffd700;
+      color: #002244;
+    }
+
+    .publication-section {
+      display: none;
+    }
+
+    .publication-section.active {
+      display: block;
+    }
+
+    .month-dropdown {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .month-header {
+      background-color: #ca9494;
+      color: rgb(0, 0, 0);
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .month-content {
+      display: none;
+      padding: 20px;
+    }
+
+    .month-content.active {
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    thead {
+      background-color: #051447;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+    .month-content {
+  display: none;
+}
+
+  </style>
+  <script>
+    function showYear(year) {
+      document.querySelectorAll('.publication-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(year).classList.add('active');
+    }
+
+    function toggleMonth(id) {
+      const content = document.getElementById(id);
+      content.classList.toggle('active');
+    }
+  </script>
+</head>
+<body>
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Research</a>
+          <div class="dropdown-content">
+            <a href="projects.html">Projects</a>
+            <a href="publications.html" aria-current="page">Publications</a>
+          </div>
+        </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Inside <main> tag -->
+<main>
+  <h2 style="text-align:center;">Faculty Publications</h2>
+  <div class="year-buttons">
+    <button onclick="showYear('2024')">2024</button>
+    <button onclick="showYear('2025')">2025</button>
+  </div>
+
+  <!-- 2024 PUBLICATIONS -->
+  <div class="publication-section" id="2024">
+    <!-- January -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('jan2024')">January ▼</div>
+      <div class="month-content" id="jan2024">
+        <!-- Example table for January -->
+         <table style="width:100%; border-collapse: collapse; font-family: 'Poppins', sans-serif; font-size: 0.95rem;">
+        <thead style="background-color: #002244; color: #ffffff;">
+          <tr>
+            <th style="padding: 12px; border: 1px solid #ddd;">S.No</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Name of the Faculty Member</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Type</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Title of the Paper / Patent</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Name of the Journal / Conference / Patent Agency</th>
+            <th style="padding: 12px; border: 1px solid #ddd;">Publisher</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">1</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Dr. T. Jemima Jebaseeli</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Conference Paper</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">An Image-based Fall Detection System for the Elderly using YOLOv5</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">2nd International Conference on Automation, Computing and Renewable Systems, ICACRS 2023 - Proceedings</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">IEEE</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">2</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Dr. J. Praveen Chandar</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Journal Paper</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Efficient Cloud Resource Scheduling with an Optimized Throttled Load Balancing Approach</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Computers, Materials & Continua</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Tech Science Press</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">3</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Dr. J. Praveen Chandar</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Journal Paper</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Deep Learning Algorithms in Mobile Edge with Real-Time Abnormal Event Detection for 5G-IoT Devices</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">International Journal of Interactive Mobile Technologies</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">OJS/PKP</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">4</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">P. Joyce Beryl Princess</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Chapter</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">A comparative analysis of machine learning and deep learning techniques for aspect-based sentiment analysis</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Computational Intelligence Methods for Sentiment Analysis in Natural Language Processing Applications</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Morgan Kaufmann</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">5</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">P. Joyce Beryl Princess</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Journal Paper</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Cooling of power electronic devices using rectangular flat heat pipes with externally and internally cooled condenser regions</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Applied Thermal Engineering</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Elsevier</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- February -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('feb2024')">February ▼</div>
+      <div class="month-content" id="feb2024">
+         <table style="width:100%; border-collapse:collapse; font-family:Arial, sans-serif;">
+      <thead style="background-color:#002244; color:white;">
+        <tr>
+          <th style="padding:12px; border:1px solid #ddd;">S.No</th>
+          <th style="padding:12px; border:1px solid #ddd;">Name of the Faculty Member</th>
+          <th style="padding:12px; border:1px solid #ddd;">Type</th>
+          <th style="padding:12px; border:1px solid #ddd;">Title of the Paper / Patent</th>
+          <th style="padding:12px; border:1px solid #ddd;">Name of the Journal / Conference / Patent Agency</th>
+          <th style="padding:12px; border:1px solid #ddd;">Publisher</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:12px; border:1px solid #ddd;">1</td>
+          <td style="padding:12px; border:1px solid #ddd;">Dr. Manoranjitham R</td>
+          <td style="padding:12px; border:1px solid #ddd;">Conference Paper</td>
+          <td style="padding:12px; border:1px solid #ddd;">Automatic Kidney Stone Detection using XResnet 152 model for CT images</td>
+          <td style="padding:12px; border:1px solid #ddd;">Second IEEE and ACM Collaborative International Conference on Emerging Trends in Information Technology and Engineering, ICETITE’24</td>
+          <td style="padding:12px; border:1px solid #ddd;">IEEE</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Dr. T. Jemima Jebaseeli</td>
+          <td>Journal Paper</td>
+          <td>Agricultural Farm Production Model for Smart Crop Yield Recommendations Using Machine Learning Techniques</td>
+          <td>Engineering Proceedings</td>
+          <td>MDPI</td>
+        </tr>   
+        <tr>
+          <td>3</td>
+          <td>Dr. T. Jemima Jebaseeli</td>
+          <td>Journal Paper</td>
+          <td>Human Emotion Detection Using DeepFace and Artificial Intelligence</td>
+          <td>Engineering Proceedings</td>
+          <td>MDPI</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Dr. T. Jemima Jebaseeli</td>
+          <td>Journal Paper</td>
+          <td>Using Artificial Intelligence Methods to Create a Chatbot for University Questions and Answers</td>
+          <td>Engineering Proceedings</td>
+          <td>MDPI</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Dr. T. Jemima Jebaseeli</td>
+          <td>Journal Paper</td>
+          <td>Geopositional Data Analysis Using Clustering Techniques to Assist Occupants in a Specific City</td>
+          <td>Engineering Proceedings</td>
+          <td>MDPI</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Dr. T. Jemima Jebaseeli</td>
+          <td>Journal Paper</td>
+          <td>Using Chemical Precipitation to Recover Struvite from Household Wastewater for Agricultural Fertilizer Utilization</td>
+          <td>Engineering Proceedings</td>
+          <td>MDPI</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Sree Sankar. J</td>
+          <td>Conference Paper</td>
+          <td>Efficient Prediction of Cardio Vascular Diseases using Lasso and Feature Extraction using Machine Learning Techniques</td>
+          <td>International Conference on Advanced Computing Communication and Electrical System</td>
+          <td>IEEE</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Sree Sankar. J</td>
+          <td>Conference Paper</td>
+          <td>Liver Tumour Detection using Machine Learning Algorithms</td>
+          <td>International Conference on Computer, Cybernetics and</td>
+          <td>SCOPUS</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Sree Sankar. J</td>
+          <td>Conference Paper</td>
+          <td>PRINCIPLES OF MANAGEMENT</td>
+          <td>Jayalakshmi Publications</td>
+          <td>ISBN No: 978-93-90203-88-8</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Dr Jangam Ebenezer</td>
+          <td>Journal Paper</td>
+          <td>Intelligent Trajectory for Mobile Element in WSNs with Obstacle Avoidance</td>
+          <td>Contemporary Mathematics</td>
+          <td>Universal Wiser</td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
+
+    <!-- March -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('mar2024')">March ▼</div>
+      <div class="month-content" id="mar2024">
+       <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name of the Faculty Member</th>
+          <th>Type</th>
+          <th>Title of the Paper / Patent</th>
+          <th>Name of the Journal / Conference / Patent Agency</th>
+          <th>Publisher</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Dr. Manoranjitham R</td><td>Conference Paper</td><td>Pneumonia disease detection using Hyperparameter tuned Convolutional Neural Network from Chest X-ray images</td><td>International Conference on Advanced Computing and Communication Systems, ICACCS’24</td><td>IEEE</td></tr>
+        <tr><td>2</td><td>Dr.T. Jemima Jebaseeli</td><td>Conference Paper</td><td>IoT based automatic temperature monitoring and adjustment system for the organic farm</td><td>3rd International Conference on Advancements in Automation, Robotics, and Sensing, ICAARS 2022</td><td>AIP</td></tr>
+        <tr><td>3</td><td>Dr.T. Jemima Jebaseeli</td><td>Journal Paper</td><td>MODELING A SMART IOT DEVICE FOR MONITORING INDOOR AND OUTDOOR ATMOSPHERIC POLLUTION</td><td>Scalable Computing</td><td>West University of Timisoara</td></tr>
+        <tr><td>4</td><td>Dr.T. Jemima Jebaseeli</td><td>Journal Paper</td><td>A Methodical Review of Iridology-Based Computer-Aided Organ Status Assessment Techniques</td><td>Engineering Proceedings</td><td>MDPI</td></tr>
+        <tr><td>5</td><td>Ruth Benjamin</td><td>Conference Paper</td><td>System for Identifying and avoiding obstructions on railway tracks in forest areas</td><td>International conference on Advanced Computing and communication systems -ICACCS 2024</td><td>IEEE</td></tr>
+        <tr><td>6</td><td>Ruth Benjamin</td><td>Conference Paper</td><td>Bread Quality Assessment using Deep Learning with Shape and Volume Metrics</td><td>International conference on Advanced Computing and communication systems -ICACCS 2025</td><td>IEEE</td></tr>
+        <tr><td>7</td><td>Ruth Benjamin</td><td>Conference Paper</td><td>Combining Manta Ray Optimization with Deep Learning for Chest X-Ray Image Classification</td><td>Second International Conference on Advances in Smart Sensor, Signal Processing and Communication Technology (ICASSCT 2024)</td><td>AIP</td></tr>
+        <tr><td>8</td><td>Martin Victor K</td><td>Conference Paper</td><td>BH Attack Dataset for Intrusion Detection System in RPL Networks</td><td>2024 Second International Conference on Advances in Smart Sensor, Signal Processing and Communication Technology</td><td>AIP</td></tr>
+        <tr><td>9</td><td>P. Joyce Beryl Princess</td><td>Conference Paper</td><td>Cancer Medical Image Analysis Across Modalities using aAttention Mechanism and Capsule Network</td><td>Advanced Computing & Communication Systems -ICACCS 2024</td><td>IEEE</td></tr>
+        <tr><td>10</td><td>Dr. Manoranjitham R</td><td>Conference Paper</td><td>Artificial Intelligence for Beginners</td><td>Charulatha Publications</td><td>Charulatha Publications ISBN: 9789355778918</td></tr>
+        <tr><td>11</td><td>Golden Nancy R</td><td>Conference Paper</td><td>Leveraging Machine learning and Data Analytics for Smart Agriculture and Smart Poultry</td><td>Fourth international conference on Artificial Intelligence and Smart Computing-2024(ICAISC'24)</td><td>SCOPUS</td></tr>
+        <tr><td>12</td><td>Golden Nancy R</td><td>Conference Paper</td><td>Advanced Video Vision transformed based system for elderly fall detection and rapid alerting</td><td>Fourth international conference on Artificial Intelligence and Smart Computing-2024(ICAISC'24)</td><td>SCOPUS</td></tr>
+        <tr><td>13</td><td>Golden Nancy R</td><td>Conference Paper</td><td>Performance analysis of YOLO variants in real-time object detection: A comparative study</td><td>Fourth international conference on Artificial Intelligence and Smart Computing-2024(ICAISC'24)</td><td>SCOPUS</td></tr>
+        <tr><td>14</td><td>Golden Nancy R</td><td>Conference Paper</td><td>Comparing Machine Learnings for Crime rate Predictions</td><td>6th International conference on inventive computation and Information Technologies(ICICT 2024)</td><td>IEEE</td></tr>
+        <tr><td>15</td><td>Golden Nancy R</td><td>Conference Paper</td><td>Predictive Cultivation of Bonsai through IOT smart Irrigation</td><td>6th International conference on inventive computation and Information Technologies(ICICT 2024)</td><td>IEEE</td></tr>
+        <tr><td>16</td><td>Golden Nancy R</td><td>Conference Paper</td><td>Ocimum Sanctum Linn Plant growth monitoring and irrigation system</td><td>6th International conference on inventive computation and Information Technologies(ICICT 2024)</td><td>IEEE</td></tr>
+        <tr><td>17</td><td>Golden Nancy R</td><td>Conference Paper</td><td>CHANNEL ASSIGNMENT USING MUTUAL LEARNING AUTOMATA IN WIRELESS MESH NETWORKS</td><td>iDEAAS 2024</td><td>SCOPUS</td></tr>
+        <tr><td>18</td><td>Dr. D. Narmadha</td><td>Conference Paper</td><td>Educational Data Mining: A Systematic Review of Machine Learning Algorithms</td><td>IET Conference Proceedings</td><td>IEEE</td></tr>
+        <tr><td>19</td><td>Dr. D. Narmadha</td><td>Journal Paper</td><td>Vector Based Genetic Lavrentyev Paraboloid Network Wireless Sensor Network Lifetime Improvement</td><td>Wireless Personal Communication</td><td>Springer</td></tr>
+        <tr><td>20</td><td>Dr. D. Narmadha</td><td>Conference Paper</td><td>Investigations on the impact of AI models in human health using nutrient analysis from food images</td><td>IET Digital Libarary</td><td>IET</td></tr>
+        <tr><td>21</td><td>Dr. Manoranjitham R</td><td>Conference Paper</td><td>Enhanced Air Quality Prediction Using Optimized Sarimax Morel For Coimbatore Region</td><td>IEEE ICSTEM 2024</td><td>IEEE</td></tr>
+        <tr><td>22</td><td>Dr. Manoranjitham R</td><td>Conference Paper</td><td>Evaluating the Mayfly and Random search methods for optimizing Fully Convolutional Networks in Liver Lesion Identification</td><td>IEEE ICPEICES 2024</td><td>IEEE</td></tr>
+        <tr><td>23</td><td>Dr. Sebastian Terence.J</td><td>Conference Paper</td><td>Violence Detection using ConvLSTM and LRCN</td><td>Advanced Computing & Communication Systems -ICACCS 2024</td><td>IEEE</td></tr>
+        <tr><td>24</td><td>Dr. Sebastian Terence.J</td><td>Conference Paper</td><td>Tata Motors Stock Price Prediction using Predictive Artificial Intelligence</td><td>Advanced Computing & Communication Systems -ICACCS 2024</td><td>IEEE</td></tr>
+        <tr><td>25</td><td>Dr. Sebastian Terence.J</td><td>Conference Paper</td><td>Malaria Detection using Residual Network</td><td>Advanced Computing & Communication Systems -ICACCS 2024</td><td>IEEE</td></tr>
+        <tr><td>26</td><td>Dr. Sebastian Terence.J</td><td>Conference Paper</td><td>Deep Learning based Animal Intrusion Detection System</td><td>ICAIS 2024</td><td>Springer</td></tr>
+        <tr><td>27</td><td>P.Joyce Beryl Princess</td><td>Conference Paper</td><td>"Cancer Medical Image Analysis Across Modalities Using Attention Mechanism and Capsule Network"</td><td>ICACCS 2024</td><td>IEEE</td></tr>
+        <tr><td>28</td><td>P.Joyce Beryl Princess</td><td>Chapter</td><td>Impact of Cloud Computing on the Future of Smart Farming</td><td>Signals and Communication Technology</td><td>Springer Nature</td></tr>
+      </tbody>
+    </table>  
+      </div>
+    </div>
+
+    <!-- April -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('apr2024')">April ▼</div>
+      <div class="month-content" id="apr2024">
+        <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+  <thead style="background-color: #002244; color: white;">
+    <tr>
+      <th>S.No</th>
+      <th>Name of the Faculty Member</th>
+      <th>Type</th>
+      <th>Title of the Paper / Patent</th>
+      <th>Name of the Journal / Conference / Patent Agency</th>
+      <th>Publisher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Dr. Sebastian Terence.J</td><td>Conference Paper</td><td>Analysing Non-Fungible Tokens (NFTs) and their Rarity</td><td>ICCSP 2024</td><td>IEEE</td></tr>
+    <tr><td>2</td><td>Dr.J.Praveen chandar</td><td>Conference Paper</td><td>An Effective Machine Learning Model to Detect and Analyze the Autism Spectrum Disorder</td><td>ICC - ROBINS-2024</td><td>IEEE</td></tr>
+    <tr><td>3</td><td>Dr.J.Praveen chandar</td><td>Journal Paper</td><td>Autonomous Vehicle Traffic Accident Prevention using Mobile-Integrated Deep Reinforcement Learning Technique</td><td>The Journal of Electrical Systems</td><td>JES</td></tr>
+    <tr><td>4</td><td>K. Martin Victor</td><td>Conference Paper</td><td>DMARS: Deep Learning Based Music Assisted Rehabilitation System for Depressed People</td><td>ICRAINS - 24</td><td>AIP</td></tr>
+    <tr><td>5</td><td>K. Martin Victor</td><td>Journal Paper</td><td>Federated Learning-Based Black Hole Prevention In The Internet Of Things Environment</td><td>International Journal Of Sensors, Wireless Communications And Control</td><td>Bentham Publishers</td></tr>
+    <tr><td>6</td><td>Dr. Sebastian Terence.J</td><td>Conference Paper</td><td>Interactive Video Virtual Assistant Framework with Retrieval Augmented Generation for E-Learning</td><td>ICICIT 2024</td><td>IEEE</td></tr>
+    <tr><td>7</td><td>K. Martin Victor</td><td>Journal Paper</td><td>CNN Based Machine Learning Approach for Cyclone Intensity Prediction</td><td>Advances in Multi-Material Additive Manufacturing</td><td>Trans Tech Publications Ltd., Scientific.net</td></tr>
+    <tr><td>8</td><td>P.Joyce Beryl Princess</td><td>Conference Paper</td><td>Aspect Sentiment Analysis with Triplet Extraction for E-Commerce</td><td>ICICIT 2024</td><td>IEEE</td></tr>
+    <tr><td>9</td><td>P.Joyce Beryl Princess</td><td>Conference Paper</td><td>Multi-Criteria based Graph Neural Networks for Medical Emergency Response System</td><td>ICICIT 2024</td><td>IEEE</td></tr>
+    <tr><td>10</td><td>Dr. Raj Kumar . J.S.</td><td>Conference Paper</td><td>Forest Wildfire Detection from Satellite Image Using Deep Learning</td><td>IC3IoT 2024</td><td>IEEE</td></tr>
+    <tr><td>11</td><td>Dr. Raj Kumar . J.S.</td><td>Conference Paper</td><td>Monitoring Industrial Protection Gear Using Intelligent System</td><td>ICNWC 2024</td><td>IEEE</td></tr>
+    <tr><td>12</td><td>Dr. Raj Kumar . J.S.</td><td>Conference Paper</td><td>Increased hair-fall prediction and prevention based on dietary habits using machine learning</td><td>ICASSCT 2024</td><td>IEEE</td></tr>
+    <tr><td>13</td><td>Dr. Raj Kumar . J.S.</td><td>Conference Paper</td><td>Learning disability detection and classification analaysis between two classification algorithm</td><td>ICOECA 2024</td><td>IEEE</td></tr>
+  </tbody>
+</table>
+
+      </div>
+    </div>
+
+    <!-- May -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('may2024')">May ▼</div>
+      <div class="month-content" id="may2024">
+        <table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse: collapse; text-align: left;">
+  <thead style="background-color: #002244; color: white;">
+    <tr>
+      <th>S.No</th>
+      <th>Name of the Faculty Member</th>
+      <th>Type</th>
+      <th>Title of the Paper / Patent</th>
+      <th>Name of the Journal / Conference / Patent Agency</th>
+      <th>Publisher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Dr. Sebastian Terence. J</td>
+      <td>Conference</td>
+      <td>Investigation of Grey Wolf Algorithm for Solving Heterogeneous Unmanned Aerial Vehicle Task Assignment Problem</td>
+      <td>AMATHE</td>
+      <td>IEEE</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Dr. Sebastian Terence. J</td>
+      <td>Conference</td>
+      <td>Investigation of Red Fox Algorithm for Solving Task Assignment Problem in Heterogeneous Unmanned Aerial Vehicle Swarm</td>
+      <td>AIIoT 2024</td>
+      <td>IEEE</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    </div>
+
+    <!-- June -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('jun2024')">June ▼</div>
+      <div class="month-content" id="jun2024">
+         <table style="width:100%; border-collapse:collapse; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:15px;">
+      <thead style="background-color:#002244; color:white;">
+        <tr>
+          <th style="padding:10px; border:1px solid #ccc;">S.No</th>
+          <th style="padding:10px; border:1px solid #ccc;">Author</th>
+          <th style="padding:10px; border:1px solid #ccc;">Type</th>
+          <th style="padding:10px; border:1px solid #ccc;">Title</th>
+          <th style="padding:10px; border:1px solid #ccc;">Conference/Journal</th>
+          <th style="padding:10px; border:1px solid #ccc;">Publisher</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Dr. T. Jemima Jebaseeli</td><td>Journal Paper</td><td>A Framework Of Digital Twins For Improving Respiratory Health And Healthcare Measures</td><td>Scalable Computing</td><td>Scopus</td></tr>
+        <tr><td>2</td><td>Mrs. Golden Nancy</td><td>Journal Paper</td><td>A Framework Of Digital Twins For Improving Respiratory Health And Healthcare Measures</td><td>Scalable Computing</td><td>Scopus</td></tr>
+        <tr><td>3</td><td>Ms. Sophia S</td><td>Conference Paper</td><td>Human Behaviour and Abnormality Detection using YOLO and Conv2D Net</td><td>ICICCT - 2024</td><td>IEEE</td></tr>
+        <tr><td>4</td><td>Ms. Sophia S</td><td>Conference Paper</td><td>Optimizing Waste Management: Integrated Pollution Detection and Systematic Reporting for Sustainable Disposal</td><td>ICNWC 2024</td><td>IEEE</td></tr>
+        <tr><td>5</td><td>Ms. Sophia S</td><td>Conference Paper</td><td>Prediction and Analysis of Various Cyber Attack Models in Cyber Physical System in Virtual Environment</td><td>ICAISS 2023</td><td>IEEE</td></tr>
+        <tr><td>6</td><td>Ms. Sophia S</td><td>Conference Paper</td><td>Enhancing IoT-Enabled Healthcare with Genetic-based Encryption and Authentication for Secure and Efficient wireless Data Transmission</td><td>ICICCT - 2024</td><td>IEEE</td></tr>
+        <tr><td>7</td><td>Dr. Sebastian Terence. J</td><td>Conference Paper</td><td>Domain Name Server Filtering Services using Threat Intelligence and Machine Learning Techniques</td><td>ICICCT - 2024</td><td>Springer</td></tr>
+        <tr><td>8</td><td>Dr.J.Praveen Chandar</td><td>Journal Paper</td><td>Prediction of Air Pollution Utilizing an Adaptive Network Fuzzy Inference System with the Aid of Genetic Algorithm</td><td>Natural and Engineering Sciences</td><td>Natural and Engineering Sciences</td></tr>
+        <tr><td>9</td><td>Dr.J.Praveen Chandar</td><td>Conference Paper</td><td>An Effective Machine Learning Algorithm for Forecasting the Market Value of a House</td><td>ICAAIC 2024</td><td>IEEE</td></tr>
+        <tr><td>10</td><td>Dr.J.Praveen Chandar</td><td>Conference Paper</td><td>An effective Stock market Prediction using an advanced Machine Learning algorithm and Emotional Analysis</td><td>ICAAIC 2024</td><td>IEEE</td></tr>
+        <tr><td>11</td><td>Dr.J.Praveen Chandar</td><td>Conference Paper</td><td>An effective Web Scripting Algorithm for Reat time Data Processing</td><td>ICSCSS-2024</td><td>IEEE</td></tr>
+        <tr><td>12</td><td>Dr.J.Praveen Chandar</td><td>Conference Paper</td><td>An Effective Algorithm to Enhance the Performance of Online Quiz System</td><td>ICSCSS-2025</td><td>IEEE</td></tr>
+        <tr><td>13</td><td>Mrs. Golden Nancy</td><td>Conference Paper</td><td>Infant Brain Tumor Detection Using Deep Learning</td><td>ICSTEM 2024</td><td>IEEE</td></tr>
+        <tr><td>14</td><td>Dr. D. Narmadha</td><td>Conference Paper</td><td>High-Performance Ka-Band Microstrip Patch Antenna for Next-Generation Networks at 33 GHz</td><td>ICNWC</td><td>IEEE</td></tr>
+        <tr><td>15</td><td>Dr. D. Narmadha</td><td>Conference Paper</td><td>Glaucoma Prediction Using Deep Learning Techniques - A Comparative Study</td><td>IC-CGU 2024</td><td>IEEE</td></tr>
+        <tr><td>16</td><td>Dr. D. Narmadha</td><td>Conference Paper</td><td>Improved Heart Sound Classification Using LSTM Based Deep Learning Technique</td><td>ICICV 2024</td><td>IEEE</td></tr>
+        <tr><td>17</td><td>Dr. D. Narmadha</td><td>Conference Paper</td><td>Solar-Powered Waterborne Debris Collector Equipped with Sprinkler System</td><td>ic-ETITE 2024</td><td>IEEE</td></tr>
+        <tr><td>18</td><td>Dr. D. Narmadha</td><td>Conference Paper</td><td>Reconstruction of Medical Images from Sparse Data: A Deep Learning Approach</td><td>ICMCSI 2024</td><td>IEEE</td></tr>
+        <tr><td>19</td><td>Dr. D. Narmadha</td><td>Journal Paper</td><td>A New Method for Detecting the Fatigue Using Automated Deep Learning Techniques for Medical Imaging Applications</td><td>Springer</td><td>SCI</td></tr>
+        <tr><td>20</td><td>Dr. Manoranjitham R</td><td>Chapter</td><td>Artificial Intelligence in Medicine</td><td>CRC Press</td><td>CRC Press</td></tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
+
+    <!-- September -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('sep2024')">September ▼</div>
+      <div class="month-content" id="sep2024">
+         <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+      <thead style="background-color: #002244; color: white;">
+        <tr>
+          <th style="padding: 12px; border: 1px solid #ddd;">S.No</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Name of the Faculty Member</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Type</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Title of the Paper / Patent</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Name of the Journal / Conference / Patent Agency</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Publisher</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #ddd;">1</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Dr. T. Jemima Jebaseeli</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Conference Paper</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">A Comparative Study of Pedestrian Detection Techniques Over the Last Decade</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Lecture Notes in Networks and Systems</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Springer Nature</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #ddd;">2</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Dr. T. Jemima Jebaseeli</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Conference Paper</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Drowsiness Detection Using Adaboost Method and Haar Cascade Classifier to Improve Safety of Drivers</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Lecture Notes in Networks and Systems</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Springer Nature</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #ddd;">3</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">R Golden Nancy</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Conference Paper</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Ocimum Sanctum Linn Plant Fertilizer and Insecticide Spraying System with Disease Prediction using Machine learning</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Proceedings of the 3rd International Conference on Applied Artificial Intelligence and Computing</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">IEEE</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #ddd;">4</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">R Golden Nancy</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Conference Paper</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">A Comparative Analysis of Machine Learning Algorithms for Crime Rate Prediction</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">2024 3rd International Conference on Applied Artificial Intelligence and Computing (ICAAIC)</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">IEEE</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #ddd;">5</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">R Golden Nancy</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Conference Paper</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">Precision Cultivation for Bonsai through IoT Implemented Smart Irrigation</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">2024 3rd International Conference on Applied Artificial Intelligence and Computing (ICAAIC)</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">IEEE</td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2025 PUBLICATIONS -->
+  <div class="publication-section" id="2025">
+    <!-- January -->
+    <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('jan2025')">January ▼</div>
+      <div class="month-content" id="jan2025">
+        <table border="1" cellspacing="0" cellpadding="10" style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+  <thead style="background-color:#002244; color:white;">
+    <tr>
+      <th>#</th>
+      <th>Name of the Faculty Member</th>
+      <th>Type</th>
+      <th>Title of the Paper / Patent</th>
+      <th>Name of the Journal / Conference / Patent Agency</th>
+      <th>Publisher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Dr. J Dinesh Peter</td>
+      <td>Conference Paper</td>
+      <td>Learning Fuzzy Label Distribution Specific Features for Data Processing</td>
+      <td>IEEE Transactions on Fuzzy Systems</td>
+      <td>IEEE</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Dr. J Dinesh Peter</td>
+      <td>Conference Paper</td>
+      <td>Large Models for Cooperative Control Connected and Autonomous Vehicles Enhanced Defensive Model Using CNN against Adversarial Attacks for Medical Education through Human-Computer Interaction</td>
+      <td>IEEE Transactions on Vehicular Technology</td>
+      <td>IEEE</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Dr. J Dinesh Peter</td>
+      <td>Journal Paper</td>
+      <td>A Deep Learning-based Psychometric Natural Language Processing for Credit Evaluation of Personal Characteristics Future Prospects of Large Language Models: Enabling Natural Language Processing in Educational Robotics Emotion Detection for Customer Satisfaction Using Optimized XLNet Model Analysis of Enhanced Ant Lion Optimizer Algorithms for Robust Dimensionality Reduction Brain Tumor Detection and Classification using Vision Transformer (ViT)</td>
+      <td>International Journal of Human-Computer Interaction, Journal of Wireless Mobile Networks, Ubiquitous Computing, and Dependable Applications (JoWUA)</td>
+      <td>Scopus</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Dr. J Praveen Chandar</td>
+      <td>Journal Paper</td>
+      <td>Future Prospects of Large Language Models: Enabling Natural Language Processing in Educational Robotics</td>
+      <td>Journal of Interactive Mobile Technologies (iJIM)</td>
+      <td>Scopus</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Dr. J Praveen Chandar</td>
+      <td>Journal Paper</td>
+      <td>Emotion Detection for Customer Satisfaction</td>
+      <td>Journal of Interactive Mobile Technologies (iJIM)</td>
+      <td>Scopus</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Mrs. R Hemalatha</td>
+      <td>Conference Paper</td>
+      <td>Using Optimized XLNet Model</td>
+      <td>ICDSAAI</td>
+      <td>Others</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Dr. Manoranjan R</td>
+      <td>Conference Paper</td>
+      <td>Analysis of Enhanced Ant Lion Optimizer Algorithms for Robust Dimensionality Reduction</td>
+      <td>IEEE Transactions on Vehicular Technology</td>
+      <td>IEEE</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Dr. D Narmadha</td>
+      <td>Conference Paper</td>
+      <td>Brain Tumor Detection and Classification using Vision Transformer (ViT)</td>
+      <td>3rd International Conference on Automation, Computing and Renewable Systems (ICACRS 2024)</td>
+      <td>Scopus</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Dr. D Narmadha</td>
+      <td>Conference Paper</td>
+      <td>Efficient NetBio-based Automated Diabetic Retinopathy Classification in Fundus Images "Detection of Distributed Denial of Service Attack on Controller in Software Defined Network</td>
+      <td>2024 IEEE International Conference on Smart Power Control and Renewable Energy (ICSPCRE 2024)</td>
+      <td>Scopus</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Dr. D Narmadha</td>
+      <td>Conference Paper</td>
+      <td>Attack on Controller in Software Defined Network</td>
+      <td>Smart Power Control and Renewable Energy (ICSPCRE 2024)</td>
+      <td>Scopus</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Mrs. Angelin Jeba P</td>
+      <td>Conference Paper</td>
+      <td>Proteomic Bigdata Model for Precision Medicine</td>
+      <td>Nature Portfolio</td>
+      <td>Web of Science</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Dr. Emmanual Joy</td>
+      <td>Conference Paper</td>
+      <td>The Smart Agricultural Revolution Across Global Nations — A Technological Perspective "Find-to-End Personalized Medical Recommendation Framework for Disease Prediction</td>
+      <td>CRC Press</td>
+      <td>Scopus</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Dr. Emmanual Joy</td>
+      <td>Conference Paper</td>
+      <td>Recommendation Framework for Disease Prediction</td>
+      <td>ICSADL 2025</td>
+      <td>Scopus</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </div>
+
+  <div class="month-dropdown">
+      <div class="month-header" onclick="toggleMonth('feb2025')">February ▼</div>
+      <div class="month-content" id="feb2025">
+        <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+      <thead style="background-color: #002244; color: white;">
+        <tr>
+          <th style="padding: 12px; border: 1px solid #ddd;">#</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Name of the Faculty Member</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Type</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Title of the Paper / Patent</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Name of the Journal / Conference / Patent Agency</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Publisher</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Dr. D Narmadha</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Conference Paper</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Predicting Water Quality Parameters Using LSTM Models</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">AIP Conference Proceedings</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Scopus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Mrs. Abirami MK</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Journal Paper</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Stacked Ensemble Deep Learning Framework for Automated Glaucoma Classification and Real-time Prediction</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Journal of Neonatal Surgery</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Scopus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Dr. Jemima Jebaseeli</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Journal Paper</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">An Enhancement of Object Detection Using YOLO v8 and Mobile Net in Challenging Conditions</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">SN Computer Science</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Scopus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Dr. Emmanual Joy</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Journal Paper</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">The Smart Agricultural Revolution Across Global Nations — A Technological Perspective Review on Predictive Artificial Intelligence in Sustainable Agriculture 4.0</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Intelligent Designs, Innovations and Sustainable in Agriculture 4.0 International Conference on Intelligent Sustainable Systems (ICISS 2025)</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Scopus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Dr. Sebastian Terence</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Conference Paper</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Review on Predictive Artificial Intelligence in Sustainable Agriculture 4.0</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">International Conference on Intelligent Sustainable Systems (ICISS 2025)</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Scopus</td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+  <script>
+  function toggleYear(year) {
+    // Hide both
+    document.getElementById("pub2024").style.display = "none";
+    document.getElementById("pub2025").style.display = "none";
+
+    // Show the selected year
+    document.getElementById("pub" + year).style.display = "block";
+  }
+
+  function toggleMonth(monthId) {
+    var content = document.getElementById(monthId);
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  }
+</script>
+
+
+
+</body>
+</html>

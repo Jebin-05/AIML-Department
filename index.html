@@ -1,0 +1,714 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI & ML Home page | Karunya Institute of Technology & Sciences</title>
+    <link rel="icon" type="image/png" href="images/Logo.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        color: #002244;
+        min-height: 100vh;
+        background-color: #ffffff;
+      }
+
+      .ticker {
+        background-color: #002244;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 10px 0;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .ticker a {
+        display: inline-block;
+        padding-left: 100%;
+        animation: ticker 30s linear infinite;
+        color: #ffd700;
+        text-decoration: none;
+      }
+
+      @keyframes ticker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+
+      header {
+        background-color: #fff;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        flex-wrap: wrap;
+      }
+
+      .dept-logo {
+        height: 60px;
+        width: auto;
+        max-width: 100%;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #002244;
+        font-weight: 600;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a[aria-current="page"] {
+        color: #ffd700;
+      }
+
+      #hero-banner {
+        height: 50vh;
+        background: url('images/Home.jpg') no-repeat center center;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      #home {
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      #home .hero-text {
+        max-width: 800px;
+        animation: fadeIn 1.5s ease-in;
+      }
+
+      #home .hero-text h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      #home .hero-text p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #444;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      footer {
+        background-color: #002244;
+        color: white;
+        text-align: center;
+        padding: 25px 20px;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .recruiter-ticker {
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        padding: 20px 0;
+        background-color: #f7f7f7;
+      }
+
+      .recruiter-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: recruiterScroll 40s linear infinite;
+      }
+
+      .recruiter-track img {
+        height: 60px;
+        margin: 0 30px;
+        vertical-align: middle;
+      }
+
+      @keyframes recruiterScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      button {
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #003366;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          margin-top: 10px;
+        }
+
+        #home {
+          padding: 20px;
+          margin: 30px 15px;
+        }
+
+        .hero-text h2 {
+          font-size: 1.8rem;
+        }
+
+        .hero-text p {
+          font-size: 1rem;
+        }
+
+        .ticker {
+          font-size: 14px;
+        }
+
+        .recruiter-track img {
+          height: 50px;
+          margin: 0 20px;
+        }
+      }
+      /* Home Section Background with Box */
+  #home {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 20px;
+    text-align: center;
+    background: none;
+  }
+
+  .home-bg {
+    width: 100%;
+    height: 100%;
+    background: url('images/HomeBack.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    position: relative;
+  }
+
+  .hero-text-box {
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease-out;
+    backdrop-filter: blur(5px);
+  }
+
+  .hero-heading {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #002244;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtext {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .hero-call {
+    font-size: 1rem;
+    color: #444;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+    .mySlides {
+      width: 100%;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: slideIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+    .slideshow-container {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
+    .slideshow-container {
+  position: relative;
+  overflow: hidden;
+  height: 50vh;
+  width: 100%;
+}
+
+.slides-wrapper {
+  display: flex;
+  width: 300%; /* 3 slides */
+  transition: transform 0.8s ease-in-out;
+}
+
+.mySlide {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 8px 14px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 50%;
+  user-select: none;
+}
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.dropdown-content {
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    height: 200px;               /* Fixed height for all boxes */
+    overflow-y: auto;            /* Enable vertical scroll */
+    scrollbar-width: thin;       /* Firefox */
+    scrollbar-color: #888 #eee;  /* Firefox */
+  }
+
+  /* Webkit browsers (Chrome, Edge, Safari) */
+  .dropdown-content::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .dropdown-content::-webkit-scrollbar-track {
+    background: #eee;
+    border-radius: 4px;
+  }
+
+  .dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  .dropdown-content ul {
+    padding-left: 20px;
+    margin: 0;
+    list-style: disc;
+    color: #333;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .dropdown-content li {
+    pointer-events: none;  /* disable clicking */
+    user-select: none;     /* disable selecting */
+  }
+  nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #002244;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Dropdown specific styling */
+.dropdown-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .dropdown-box {
+      flex: 1 1 30%;
+      min-width: 280px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .dropdown-box button {
+      width: 100%;
+      padding: 15px;
+      background-color: #002244;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .dropdown-content {
+      display: none;
+      padding: 15px;
+    }
+
+    .dropdown-content ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .dropdown-content li {
+      margin-bottom: 10px;
+      list-style-type: disc;
+      color: #333;
+    }
+
+</style>
+  </head>
+  <body>
+
+    <div class="ticker">
+      <a href="https://admissions.karunya.app/" target="_blank">
+        🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+      </a>
+    </div>
+
+    <header>
+      <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="placements.html">Placements</a></li>
+          <li><a href="facilities.html">Facilities</a></li>
+          <li class="dropdown">
+      <a href="#" class="dropbtn">Research</a>
+      <div class="dropdown-content">
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+      </div>
+    </li>
+          <li><a href="galleries.html">Gallery</a></li>
+          <li><a href="contacts.html">Contact</a></li>
+          <li><a href="downloads.html">Download</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="hero-banner"></section>
+
+    <section id="home">
+    <div class="home-bg">
+      <div class="hero-text-box">
+        <h2 class="hero-heading">Step Into the Future of Intelligence</h2>
+        <p class="hero-subtext">
+          At the heart of innovation and discovery, we don’t just teach AI —
+          <strong>we shape visionaries, creators, and future pioneers</strong>. Dive into the world of Artificial Intelligence & Machine Learning at Karunya, where your imagination becomes code and your ideas create real-world impact.
+        </p>
+        <p class="hero-call">
+          Are you ready to <strong>lead the revolution</strong>? Because the future isn't just coming — <em>it's being engineered here</em>.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="slideshow" style="position: relative; width: 100%;">
+  <div class="slideshow-container">
+    <img class="mySlides active" src="images/slide1.jpg" alt="Slide 1">
+    <img class="mySlides" src="images/slide2.jpg" alt="Slide 2">
+    <img class="mySlides" src="images/slide3.jpg" alt="Slide 3">
+
+    <a class="prev" onclick="changeSlide(-1)">❮</a>
+    <a class="next" onclick="changeSlide(1)">❯</a>
+  </div>
+</section>
+
+
+    <section id="about" style="background-color:#fff; padding: 60px 20px;">
+      <h2 style="text-align:center; color:#002244; font-size:2rem; font-weight:700; margin-bottom:50px;">
+        DIVISION OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
+        <span style="display:block; width:80px; height:4px; background:#002244; margin:12px auto 0;"></span>
+      </h2>
+
+      <div style="max-width:1100px; margin:0 auto 60px auto; border-radius:12px; padding:30px; box-shadow:0 8px 24px rgba(0,0,0,0.08); background:#f9f9f9;">
+        <h3 style="text-align:center; color:#003c80; font-size:1.5rem; font-weight:600;">About Us</h3>
+        <p style="text-align:justify; line-height:1.75; color:#333; margin-top:15px;">
+          The Division of Artificial Intelligence and Machine Learning is an educational milieu that creates a foreground for students to acquire knowledge in the futuristic areas of Artificial Intelligence & Machine Learning Engineering. We strive to create students ready for the industry with the ability to develop and sustain space-age systems. The curriculum’s main goal is to support learning through the essential ideas of acquiring, analysing, designing, and implementing oriented teaching. This will give students the tools they need to challenge, innovate, and compete when working on capstone projects that are assigned to them to become professionals who are ready for the workforce and to start their businesses in the future. The Division of Artificial Intelligence and Machine Learning gives you all the tools you require to incorporate and benefit from a wide range of cutting-edge, newly emerging technologies in software systems, or you may just be the mind behind it all.
+        </p>
+      </div>
+
+      <div style="max-width:800px; margin:0 auto;">
+        <div style="margin-bottom:20px;">
+          <button onclick="toggleContent('vision')" style="width:100%; padding:15px; background-color:#002244; color:white; font-size:1.2rem; font-weight:600; border:none; border-radius:8px; cursor:pointer; text-align:left;">
+            Our Vision ▼
+          </button>
+          <div id="vision" style="display:none; background:#fff; padding:20px; border-radius:0 0 8px 8px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+            <p style="text-align:justify; color:#444; line-height:1.7;">
+              To nurture globally competent engineers who can solve real-world problems by leveraging the transformative power of Artificial Intelligence and Machine Learning with creativity and precision.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <button onclick="toggleContent('mission')" style="width:100%; padding:15px; background-color:#002244; color:white; font-size:1.2rem; font-weight:600; border:none; border-radius:8px; cursor:pointer; text-align:left;">
+            Our Mission ▼
+          </button>
+          <div id="mission" style="display:none; background:#fff; padding:20px; border-radius:0 0 8px 8px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+            <p style="text-align:justify; color:#444; line-height:1.7;">
+              To produce proficient IT professionals equipped with strong ethics, innovative mindsets, and analytical skills—enabling them to impact lives and industries through responsible and transformative AI solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section style="background-color:#f4f6fa; padding: 60px 20px;"> 
+  <h2 style="text-align:center; color:#002244; font-size:2rem; font-weight:700;">
+    B.TECH COMPUTER SCIENCE AND ENGINEERING (Artificial Intelligence and Machine Learning)
+    <span style="display:block; width:80px; height:4px; background:#002244; margin:12px auto 0;"></span>
+  </h2>
+
+  <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; max-width:1100px; margin:40px auto 0;">
+
+    <!-- Left Dropdown -->
+    <div style="flex:1 1 30%; min-width:280px;">
+      <button onclick="toggleContent('domain1')" style="width:100%; padding:15px; background-color:#002244; color:white; font-size:1.1rem; font-weight:600; border:none; border-radius:8px 8px 0 0; cursor:pointer; text-align:left;">
+        Program Educational Objectives ▼
+      </button>
+      <div id="domain1" class="dropdown-content" style="display:none; background:#fff3cd;">
+        <ul>
+          <li><strong>PEO I:</strong> Innovate software solutions to address complex real-world challenges in industry and society.</li>
+          <li><strong>PEO II:</strong> Improvise the performance of enterprise software solutions through integrating emerging technologies.</li>
+          <li><strong>PEO III:</strong> Start enterprises that deliver impactful software services and technology development.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Center Dropdown -->
+    <div style="flex:1 1 30%; min-width:280px;">
+  <button onclick="toggleContent('domain2')" style="width:100%; padding:15px; background-color:#002244; color:white; font-size:1.1rem; font-weight:600; border:none; border-radius:8px 8px 0 0; cursor:pointer; text-align:left;">
+    Program Outcomes ▼
+  </button>
+  <div id="domain2" class="dropdown-content" style="display:none; background:#e2f0d9;">
+    <ul>
+      <li><strong>Engineering Knowledge:</strong> Apply the knowledge of mathematics, natural sciences, engineering fundamentals specialization to the solution of complex engineering problems.</li>
+      <li><strong>Problem Analysis:</strong> Identify, formulate, review research literature and analyze complex Engineering Problems reaching substantiated conclusions using first principles of mathematics, natural sciences and engineering sciences.</li>
+      <li><strong>Design / Development of Solutions:</strong> Design solutions for complex engineering problems and design system components or processes that meet specific needs with appropriate consideration for the public health and safety and the cultural, societal and environmental considerations.</li>
+      <li><strong>Conduct Investigations of Complex Problems:</strong> Use research- based knowledge and research methods including design of experiments, analysis and interpretation of data and synthesis of the information to provide valid conclusions.</li>
+      <li><strong>Modern Tool Usage:</strong> Create, Select and Apply appropriate techniques, resources and modern engineering and IT tools including prediction and modelling to complex engineering activities with an understanding of the limitations.</li>
+      <li><strong>The Engineer and Society:</strong> Apply Reasoning informed by the contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to the professional engineering practice.</li>
+      <li><strong>Environment and Sustainability:</strong> Understand the impact of the professional engineering solutions in societal and environmental contexts and demonstrate the knowledge of and need for sustainable development.</li>
+      <li><strong>Ethics:</strong> Apply ethical principles and commit to professional ethics and responsibilities and norms of the engineering practice.</li>
+      <li><strong>Individual and Team Work:</strong> Function effectively as an individual and as a member or leader in diverse teams and in multi-disciplinary settings.</li>
+      <li><strong>Communication:</strong> Communicate effectively on complex engineering activities with the engineering community and with society at large such as being able to comprehend and write effective reports and design documentation make effective presentations and give and receive clear instructions.</li>
+      <li><strong>Project Management and Finance:</strong> Demonstrate knowledge and understanding of the engineering and management principles and apply this to one’s own work, as a member and leader in a team, to manage projects and in multi-disciplinary environments.</li>
+      <li><strong>Life – Long Learning:</strong> Recognize the need for and have the preparation and ability to engage in independent and lifelong leaning in the broadest context of technological change.</li> 
+    </ul>
+  </div>
+</div>
+
+
+    <!-- Right Dropdown -->
+    <div style="flex:1 1 30%; min-width:280px;">
+      <button onclick="toggleContent('domain3')" style="width:100%; padding:15px; background-color:#002244; color:white; font-size:1.1rem; font-weight:600; border:none; border-radius:8px 8px 0 0; cursor:pointer; text-align:left;">
+        Program Specific Outcomes ▼
+      </button>
+      <div id="domain3" class="dropdown-content" style="display:none; background:#dbe9fa;">
+        <ul>
+          <li><strong>PSO 1:</strong> Build efficient front end and back-end software applications tailored to industry needs.</li>
+          <li><strong>PSO 2:</strong> Evaluate the performance of intelligent web-based and mobile application.</li>
+          <li><strong>PSO 3:</strong> Analyze the performance of computing infrastructures and information management.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <section style="background-color:#fff; padding: 60px 20px;">
+      <h2 style="text-align:center; color:#002244; font-size:2rem; font-weight:700;">
+        OUR TOP RECRUITERS
+        <span style="display:block; width:80px; height:4px; background:#002244; margin:12px auto 0;"></span>
+      </h2>
+
+      <div class="recruiter-ticker">
+        <div class="recruiter-track">
+          <img src="images/Accenture.png" alt="Accenture" />
+          <img src="images/Amazon.png" alt="Amazon" />
+          <img src="images/HCL.png" alt="HCL" />
+          <img src="images/IBM.png" alt="IBM" />
+          <img src="images/Infosys.png" alt="Infosys" />
+          <img src="images/Tata.png" alt="Tata" />
+          <img src="images/Wipro.png" alt="Wipro" />
+          <img src="images/Zoho.png" alt="Zoho" />
+          <!-- Loop duplicate for smooth animation -->
+          <img src="images/Accenture.png" alt="Accenture" />
+          <img src="images/Amazon.png" alt="Amazon" />
+          <img src="images/HCL.png" alt="HCL" />
+          <img src="images/IBM.png" alt="IBM" />
+          <img src="images/Infosys.png" alt="Infosys" />
+          <img src="images/Tata.png" alt="Tata" />
+          <img src="images/Wipro.png" alt="Wipro" />
+          <img src="images/Zoho.png" alt="Zoho" />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+    </footer>
+
+    <script>
+      function toggleContent(id) {
+        const content = document.getElementById(id);
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        
+      }
+    </script>
+  <script>
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("mySlides");
+
+    function showSlides(index) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].style.animation = ''; // reset animation
+      }
+
+      slides[index].style.display = "block";
+      slides[index].style.animation = "slideIn 1s ease forwards";
+    }
+
+    function plusSlides(n) {
+      slideIndex += n;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      showSlides(slideIndex);
+    }
+
+    function autoSlide() {
+      slideIndex++;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      showSlides(slideIndex);
+    }
+
+    showSlides(slideIndex);
+    setInterval(autoSlide, 3000); // 3 seconds auto-slide
+  </script>
+<script>
+  const wrapper = document.getElementById("slidesWrapper");
+  const totalSlides = wrapper.children.length;
+  let current = 0;
+
+  function showSlide(index) {
+    if (index < 0) {
+      current = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      current = 0;
+    } else {
+      current = index;
+    }
+    wrapper.style.transform = `translateX(-${current * 100}%)`;
+  }
+
+  function changeSlide(direction) {
+    showSlide(current + direction);
+    resetTimer();
+  }
+
+  let slideTimer = setInterval(() => changeSlide(1), 5000);
+
+  function resetTimer() {
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => changeSlide(1), 5000);
+  }
+
+  // Initialize
+  showSlide(0);
+</script>
+<script>
+  function toggleContent(id) {
+    const content = document.getElementById(id);
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
+
+  </body>
+  </html>
