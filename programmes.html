@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programmes Offered | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #002244;
+      background-color: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .ticker {
+      background-color: #002244;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ticker a {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 30s linear infinite;
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .dept-logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #002244;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #ffd700;
+      border-bottom: 2px solid #ffd700;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      top: 35px;
+      left: 0;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .dropdown-content li {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      font-weight: 500;
+      font-size: 15px;
+      white-space: nowrap;
+      border-bottom: 1px solid #eee;
+      color: #002244;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+      color: #002244;
+    }
+    main {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
+    section {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #0056b3;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 2rem;
+    }
+    .highlight {
+      display: inline-block;
+      background: #b1974e;
+      color: white;
+      padding: 5px 15px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .info-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .info-column {
+      flex: 1;
+      min-width: 250px;
+      background: #e6efff;
+      border-left: 10px solid #003366;
+      border-radius: 5px;
+      padding: 20px;
+    }
+    .info-column h3 {
+      background: #003366;
+      color: white;
+      padding: 10px;
+      margin: -20px -20px 20px -20px;
+      font-size: 1.2rem;
+    }
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .fancy-underline {
+  position: relative;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #002244;
+  margin-bottom: 40px;
+}
+
+.fancy-underline::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #000000;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Academics</a>
+          <div class="dropdown-content">
+            <a href="programmes.html">Programmes Offered</a>
+            <a href="curriculum.html">Curriculum</a>
+          </div>
+        </li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Facilities</a>
+          <div class="dropdown-content">
+            <a href="labs.html">Laboratories</a>
+            <a href="infrastructure.html">Infrastructure</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Research</a>
+          <div class="dropdown-content">
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+          </div>
+        </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+<!-- REPLACE ONLY THE <main> SECTION BELOW YOUR HEADER WITH THIS CLEANED CODE -->
+<main>
+  <!-- B.Tech AI -->
+  <section>
+    <h2 class="fancy-underline">B.TECH <span style="font-weight:900;">COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE)</span></h2>
+    <p>
+      A dedicated program within the Karunya Institute of Technology and Sciences is committed to pushing the boundaries of artificial intelligence (AI). This program is centered on multiple facets of AI, including education, research, and application development. Its main goal is to lead innovative research across various AI domains such as computer vision, machine learning, and natural language processing. Within this program, students strive to enhance theoretical models while also creating practical AI solutions. This program offers courses designed to equip students with the understanding and abilities needed to engage, implement, and pioneer in the realm of AI.
+    </p>
+    <div style="text-align:center;"></div>
+    <div class="highlight">DURATION: 4 YEARS</div>
+
+    <div class="info-box">
+      <div class="info-column">
+        <h3>Important <strong>Courses</strong></h3>
+        <ul>
+          <li>Artificial Intelligence: Principles and Techniques</li>
+          <li>Cognitive Computing</li>
+          <li>Computer Networks</li>
+          <li>Cryptography and Network Security</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Database Management Systems</li>
+          <li>Deep Learning</li>
+          <li>Design and Analysis of Algorithms</li>
+          <li>Data Science Ecosystem</li>
+          <li>Machine Learning Techniques</li>
+          <li>Object Oriented Programming</li>
+          <li>Operating Systems</li>
+          <li>Software Agents</li>
+          <li>Software Engineering</li>
+          <li>System Software and Compiler Design</li>
+          <li>Theory of Computation</li>
+          <li>Web Technology</li>
+          <li>Embedded Systems</li>
+        </ul>
+      </div>
+      <div class="info-column" style="background:#eaf3e8; border-left-color:#004d00;">
+        <h3 style="background:#004d00;">Career <strong>Prospects</strong></h3>
+        <ul>
+          <li>AI Research Scientist</li>
+          <li>AI Product Manager</li>
+          <li>Computer Vision Engineer</li>
+          <li>Data Scientist</li>
+          <li>AI Ethics and Policy Analyst</li>
+          <li>AI Hardware Engineer</li>
+          <li>Intelligence Analyst</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-column" style="margin-top:30px; background:#fff8e1; border-left-color:#aa6c00;">
+      <h3 style="color:#aa6c00;">Infrastructure</h3>
+      <p>
+        Artificial intelligence stands as the foremost sought-after expertise in the business world, prompting Karunya to forge a partnership with Nvidia, a trailblazer in AI computer technology. As part of this collaboration, Karunya has secured an Nvidia DGX Station, boasting formidable specifications. This includes an Intel Xeon CPU featuring 20 cores and four Nvidia Tesla V100 Tensor Core GPUs, each with 32 GB of RAM. The workstation delivers a staggering 500 teraFLOPS of AI capability.
+      </p>
+    </div>
+  </section>
+
+  <!-- B.Tech AI & ML -->
+  <section>
+    <h2 class="fancy-underline">B.TECH <span style="font-weight:900;">COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)</span></h2>
+    <p>
+      This program aims to equip students with a solid understanding of artificial intelligence (AI) and machine learning (ML) principles and practices, along with practical skills to address real-world challenges. Throughout the program, students will delve into various AI and ML domains such as computer vision, natural language processing, robotics, and deep learning. They will gain proficiency in ML algorithms and techniques through hands-on experiences in labs and projects. By the end of the program, students will possess comprehensive knowledge and practical abilities in AI and ML, empowering them to pursue careers in diverse fields like software development and data analysis. They will be well-prepared to tackle complex problems and contribute to the continual progress of AI and ML technologies.
+    </p>
+    <div style="text-align:center;"></div>
+    <div class="highlight">DURATION: 4 YEARS (FULL TIME)</div>
+
+    <div class="info-box">
+      <div class="info-column">
+        <h3>Important <strong>Courses</strong></h3>
+        <ul>
+          <li>Artificial Intelligence: Principles and Techniques</li>
+          <li>Computer Networks</li>
+          <li>Cryptography and Network Security</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Data Analytics and Visualization</li>
+          <li>Database Management Systems</li>
+          <li>Deep Learning</li>
+          <li>Design and Analysis of Algorithms</li>
+          <li>Machine Learning Techniques</li>
+          <li>Natural Language Processing</li>
+          <li>Nature Inspired Optimization</li>
+          <li>Object Oriented Programming</li>
+          <li>Operating Systems</li>
+          <li>Robotic Process Automation</li>
+          <li>System Software and Compiler Design</li>
+          <li>Theory of Computation</li>
+          <li>Web Technology</li>
+          <li>Embedded Systems</li>
+        </ul>
+      </div>
+      <div class="info-column" style="background:#eaf3e8; border-left-color:#004d00;">
+        <h3 style="background:#004d00;">Career <strong>Prospects</strong></h3>
+        <ul>
+          <li>Deep Learning Engineer</li>
+          <li>Natural Language Processing (NLP) Engineer</li>
+          <li>Machine Learning Consultant</li>
+          <li>Business Intelligence (BI) Analyst with ML Expertise</li>
+          <li>AI Ethics and Bias Specialist</li>
+          <li>Intelligence Analyst</li>
+          <li>ML Infrastructure Engineer</li>
+          <li>Robotics Engineer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-column" style="margin-top:30px; background:#fff8e1; border-left-color:#aa6c00;">
+      <h3 style="color:#aa6c00;">Infrastructure</h3>
+      <p>
+        Karunya has partnered with Nvidia, a pioneer in AI computer technology because artificial intelligence is the most sought-after expertise in the market. The DGX Station can perform deeper research in the domains of data science, machine learning, and deep learning as well as accelerate machine learning training up to 215X quicker. Moreover, the department and IBM India Pvt Ltd have an MoU inked. The goal of the IBM Big Data Software Centre of Excellence is to provide higher education teachers and students with immersive learning opportunities, pertinent Big Data Analytics skills, and proficiency with the newest Big Data tools and technologies.
+      </p>
+    </div>
+  </section>
+</main>
+
+
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+</body>
+</html>

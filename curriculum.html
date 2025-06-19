@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curriculum | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+ <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #002244;
+      background-color: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .ticker {
+      background-color: #002244;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ticker a {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 30s linear infinite;
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .dept-logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #002244;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #ffd700;
+      border-bottom: 2px solid #ffd700;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      top: 35px;
+      left: 0;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .dropdown-content li {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      font-weight: 500;
+      font-size: 15px;
+      white-space: nowrap;
+      border-bottom: 1px solid #eee;
+      color: #002244;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+      color: #002244;
+    }
+
+    main {
+  width: 100%;
+  padding: 60px 40px;
+  background: #ffffff; /* changed to white */
+  flex-grow: 1;
+}
+
+
+    h2.fancy-underline {
+      text-align: left;
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #002244;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    h2.fancy-underline::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #b1974e;
+      margin: 12px 0 0;
+      border-radius: 2px;
+    }
+    h2.fancy-underline.centered::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+    .content-text {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 40px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+    }
+
+    .image-column {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .image-column img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .image-column p {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeLeft {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeRight {
+      0% { opacity: 0; transform: translateX(50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .animate-heading {
+      animation: fadeDown 1s ease forwards;
+    }
+
+    .animate-text:nth-of-type(1) { animation: fadeUp 1s ease 0.5s forwards; }
+    .animate-text:nth-of-type(2) { animation: fadeUp 1s ease 0.8s forwards; }
+
+    .animate-left {
+      animation: fadeLeft 1s ease 1s forwards;
+    }
+
+    .animate-right {
+      animation: fadeRight 1s ease 1.2s forwards;
+    }
+
+    .animate-heading, .animate-text, .animate-left, .animate-right {
+      opacity: 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .image-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Ticker from reference -->
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <!-- Header from reference -->
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Academics</a>
+          <div class="dropdown-content">
+            <a href="programmes.html">Programmes Offered</a>
+            <a href="curriculum.html" aria-current="page">Curriculum</a>
+          </div>
+        </li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Facilities</a>
+          <div class="dropdown-content">
+            <a href="labs.html">Laboratories</a>
+            <a href="infrastructure.html">Infrastructure</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Research</a>
+          <div class="dropdown-content">
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+          </div>
+        </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Keep your original curriculum page main content unchanged -->
+  <main>
+  <div class="content-text">
+    <h2 class="fancy-underline animate-heading">Curriculum Design Process</h2>
+
+    <p class="animate-text">
+      The curriculum is designed based on Program Educational Objectives (PEOs), Program Outcomes (POs) and also adopting the guidelines of All India Council for Technical Education (AICTE). The curriculum and syllabi are discussed in Curriculum Development Cell (CDC) meetings along with student representatives. The recommendations of CDC are presented in the BoS comprising experts from premier institutes, industries and alumni for scrutiny. The recommendations of BoS are placed in Academic Council (AC) / Board of Management (BoM) for approval. Approved curriculum and syllabi are implemented and documented as Academic Hand Books.
+    </p>
+    <p class="animate-text">
+      Continuous reviews are obtained from the stakeholders, industry, academia, external experts from other institutions and faculty. The feedback is analyzed and the required updates are incorporated if necessary. Continuous review process provides a detailed insight on the process of designing/updating a Course.
+    </p>
+  </div>
+
+  <div class="image-row">
+    <div class="image-column animate-left">
+      <img src="images/Curriculum.png" alt="Curriculum Design Process" />
+      <p><strong>Curriculum Design Process</strong></p>
+    </div>
+    <div class="image-column animate-right">
+      <img src="images/Review.png" alt="Review Process" />
+      <p><strong>Review Process</strong></p>
+    </div>
+</div>
+
+  <div class="content-text" style="margin-top:50px;">
+    <h2 class="fancy-underline animate-heading">Level of Program Curriculum</h2>
+    <p class="animate-text">
+      The division ensures adherence to the guidelines received from statutory regulatory bodies like UGC, AICTE on credit distribution for PG curriculum, while developing and/or restructuring it from time to time. The Courses offered in the curriculum are on par with the top national and international Institutions. A 360° feedback approach is practiced and input from stakeholders such as industry experts, employers, academia, parents, students, and alumni is obtained to identify and offer Courses on emerging technologies addressing the societal requirements. Involvement of industrial experts in BoS, feedback from alumni, formal and informal discussions with stakeholders ensure bridging any gap between the curriculum and requirement of industries, and recruiters. Courses are also offered in collaboration with the industries such as IBM, ORACLE, Infosys, SUSE, CISCO and EMURGO.
+    </p>
+
+    <h2 class="fancy-underline animate-heading">Overall Quality</h2>
+    <p class="animate-text">
+      Courses on current technologies are identified from eminent national and international institutions and included in the curriculum as core and softcore Courses (Professional electives). More than 100 professional elective Courses have been identified on trending technologies. These Courses inspire the students to carry out research projects and publish their work in reputed conferences and refereed journals.
+    </p>
+  </div>
+  <!-- Section: Programs and Credits -->
+<!-- Section: Programs and Credits -->
+<div class="content-text" style="margin-top: 60px;">
+  <h2 class="fancy-underline centered animate-heading" style="background-color: #e6f2ff; padding: 12px; border-radius: 6px; text-align: center;">
+  <strong>1. PROGRAMS AND CREDITS</strong>
+</h2>
+
+
+  <div class="image-column" style="margin: 30px auto; max-width: 700px;">
+    <img src="images/Credits.jpg" alt="Programs and Credits" class="animate-left" />
+  </div>
+
+  <h3 style="margin-left: 0; text-align: left; font-weight: 600; color: #002244; max-width: 1100px; margin: 20px auto 10px;">
+    <strong>Courses & Credit Distribution (B.Tech. Programs) - 2021 -2022 Batch onwards </strong>
+  </h3>
+
+  <div class="image-column" style="margin: 20px auto; max-width: 700px;">
+    <img src="images/Distribution.jpg" alt="Courses Overview" class="animate-right" />
+  </div>
+</div>
+
+<!-- Section: Constitution of Curriculum Cells -->
+<div class="content-text" style="margin-top: 60px;">
+  <h2 class="fancy-underline centered animate-heading" style="background-color: #fff5e6; padding: 12px; border-radius: 6px; text-align: center;">
+  <strong>2. CONSTITUTION OF CURRICULUM CELLS</strong>
+</h2>
+
+
+  <!-- Placeholder for content -->
+ <div class="animate-text" style="margin-top: 20px;">
+  <h3 style="font-weight: 600; color: #003366;">a) Divisional Curriculum Development Cell</h3>
+  <p style="margin-bottom: 20px;">
+    Curriculum Development Cell is a standing internal committee with all the internal members of the BoS and AC and any other faculty co-opted / nominated by the Dean of School / HoD.
+  </p>
+
+  <table style="border-collapse: collapse; margin-bottom: 40px;">
+    <tr>
+      <td style="padding: 6px 20px 6px 0; font-weight: 500;">Chairman</td>
+      <td style="padding: 6px 0;">: Head of the Divisions</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 20px 6px 0; font-weight: 500;">Secretary</td>
+      <td style="padding: 6px 0;">: Faculty nominated by HoD</td>
+    </tr>
+  </table>
+
+  <h3 style="font-weight: 600; color: #003366;">b) Board of Studies</h3>
+  <table style="border-collapse: collapse;">
+    <tr>
+      <td style="padding: 6px 20px 6px 0; font-weight: 500;">Chairman</td>
+      <td style="padding: 6px 0;">: Head of the Divisions</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 20px 6px 0; font-weight: 500;">Internal Members</td>
+      <td style="padding: 6px 0;">: All Professors</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="padding: 6px 0;">: All Associate Professors</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="padding: 6px 0;">: Assistant Professors nominated by the HoD</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 20px 6px 0; font-weight: 500;">External Members</td>
+      <td style="padding: 6px 0;">: One member each one from Academia, Industry and Alumni from the constituted Board.</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 20px 6px 0; font-weight: 500;">Secretary</td>
+      <td style="padding: 6px 0;">: Faculty member nominated by the HoD.</td>
+    </tr>
+  </table>
+</div>
+
+
+
+</main>
+
+
+  <!-- Footer from reference -->
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+
+</body>
+</html>

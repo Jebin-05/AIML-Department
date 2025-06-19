@@ -436,6 +436,46 @@ nav a[aria-current="page"] {
       margin-bottom: 10px;
       list-style-type: disc;
       color: #333;
+      .dropdown {
+  position: relative;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 35px;
+  left: 0;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
+  color: #002244;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: #002244;
+}
+
     }
 
 </style>
@@ -450,25 +490,38 @@ nav a[aria-current="page"] {
 
     <header>
       <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="academics.html">Academics</a></li>
-          <li><a href="faculty.html">Faculty</a></li>
-          <li><a href="placements.html">Placements</a></li>
-          <li><a href="facilities.html">Facilities</a></li>
-          <li class="dropdown">
+     <nav>
+  <ul>
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Academics</a>
+      <div class="dropdown-content">
+        <a href="programmes.html">Programmes Offered</a>
+        <a href="curriculum.html">Curriculum</a>
+      </div>
+    </li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="placements.html">Placements</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Facilities</a>
+      <div class="dropdown-content">
+        <a href="programmes.html">Programmes Offered</a>
+        <a href="curriculum.html">Curriculum</a>
+      </div>
+    </li>
+    <li class="dropdown">
       <a href="#" class="dropbtn">Research</a>
       <div class="dropdown-content">
         <a href="projects.html">Projects</a>
         <a href="publications.html">Publications</a>
       </div>
     </li>
-          <li><a href="galleries.html">Gallery</a></li>
-          <li><a href="contacts.html">Contact</a></li>
-          <li><a href="downloads.html">Download</a></li>
-        </ul>
-      </nav>
+    <li><a href="galleries.html">Gallery</a></li>
+    <li><a href="contacts.html">Contact</a></li>
+    <li><a href="downloads.html">Download</a></li>
+  </ul>
+</nav>
+
     </header>
 
     <section id="hero-banner"></section>
