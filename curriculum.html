@@ -257,6 +257,43 @@
         gap: 20px;
       }
     }
+    .curriculum-toggle {
+  background-color: transparent;
+  border: none;
+  color: #002244;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.curriculum-toggle:hover {
+  color: #004aad;
+}
+
+.curriculum-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.curriculum-btn {
+  background-color: #004aad;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.curriculum-btn:hover {
+  background-color: #003b8b;
+}
+
+
   </style>
 
 </head>
@@ -284,13 +321,13 @@
         </li>
         <li><a href="faculty.html">Faculty</a></li>
         <li><a href="placements.html">Placements</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropbtn">Facilities</a>
-          <div class="dropdown-content">
-            <a href="labs.html">Laboratories</a>
-            <a href="infrastructure.html">Infrastructure</a>
-          </div>
-        </li>
+            <li class="dropdown">
+      <a href="#" class="dropbtn">Innovations</a>
+      <div class="dropdown-content">
+        <a href="patents.html">Patents</a>
+        <a href="products.html">Products</a>
+      </div>
+    </li>
         <li class="dropdown">
           <a href="#" class="dropbtn">Research</a>
           <div class="dropdown-content">
@@ -414,6 +451,25 @@
     </tr>
   </table>
 </div>
+<!-- Curriculum Dropdown Section -->
+<div class="content-text" style="margin-top: 60px;">
+  <div style="background-color: #f0f8ff; border: 1px solid #cce0ff; border-radius: 8px; padding: 20px;">
+    <div class="dropdown-toggle-container" style="text-align: center;">
+      <button class="curriculum-toggle" onclick="toggleCurriculum()">AIML - Curriculum</button>
+    </div>
+
+    <div id="curriculum-buttons" class="curriculum-buttons" style="display: none; margin-top: 20px;">
+  <a href="AIML - 2021 Curriculum.pdf" class="curriculum-btn" target="_blank">AIML - 2021 Curriculum</a>
+  <a href="AIML - 2022 Curriculum.pdf" class="curriculum-btn" target="_blank">AIML - 2022 Curriculum</a>
+  <a href="AIML - 2023 curriculum.pdf" class="curriculum-btn" target="_blank">AIML - 2023 Curriculum</a>
+  <a href="AIML - 2024 curriculum.pdf" class="curriculum-btn" target="_blank">AIML - 2024 Curriculum</a>
+</div>
+
+  </div>
+</div>
+
+
+
 
 
 
@@ -424,6 +480,12 @@
   <footer>
     <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
   </footer>
+<script>
+  function toggleCurriculum() {
+    const section = document.getElementById("curriculum-buttons");
+    section.style.display = section.style.display === "none" ? "flex" : "none";
+  }
+</script>
 
 </body>
 </html>
