@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: #002244;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .ticker {
+      background-color: #002244;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ticker a {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 30s linear infinite;
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header, footer {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .dept-logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #002244;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #ffd700;
+      border-bottom: 2px solid #ffd700;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      top: 35px;
+      left: 0;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      font-size: 15px;
+      border-bottom: 1px solid #eee;
+      color: #002244;
+      font-weight: 500;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    main {
+      width: 100%;
+      padding: 50px 5%;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    .highlight-title {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      position: relative;
+      color: #002244;
+    }
+
+    .highlight-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 6px;
+      background: linear-gradient(90deg, #ffd700, #ffcc00);
+      border-radius: 10px;
+    }
+
+   .product-dropdown {
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #e0f7fa;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.product-dropdown summary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #002244;
+}
+
+.product-dropdown img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto 10px;
+  display: block; /* this centers the image */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.product-description ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+
+   footer {
+  background-color: #002244;
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+    @media (max-width: 768px) {
+      main {
+        padding: 30px 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .dropdown {
+  position: relative;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Academics</a>
+          <div class="dropdown-content">
+            <a href="programmes.html">Programmes Offered</a>
+            <a href="curriculum.html">Curriculum</a>
+          </div>
+        </li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li class="dropdown">
+          <a href="#">Innovations</a>
+          <div class="dropdown-content">
+            <a href="patents.html">Patents</a>
+            <a href="products.html" aria-current="page">Products</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Research</a>
+          <div class="dropdown-content">
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+          </div>
+        </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="highlight-title">SOFTWARE PRODUCTS DEVELOPED</div>
+
+    <!-- 11 Product Entries -->
+    <!-- Sample product below, repeat structure 11 times with real data -->
+    <details class="product-dropdown">
+  <summary>1: Karunya App </summary>
+  <img src="images/Karunya APP.png" alt="Karunya App" />
+  <p class="product-description">
+    An Information Portal about the Division, notifying students and faculties of the division of various events and activities. Also, enabling students to contact faculties and also enrolling for various clubs and certification courses provided by the Division.
+  </p>
+</details>
+
+
+    <details class="product-dropdown">
+      <summary>2: Yummy App </summary>
+      <img src="images/Yummy APP.png" alt="Yummy App" />
+      <p class="product-description">
+        YummyApp is an android based recipe application for the people who are new to cooking. This app has various new features that are not present in similar application present in Google Play Store, like the feature of locating nearby groceries shops, and a reminder system. Some other unique features that are present in this app include an integrated clock, to time the recipe making, an ingredients calculator which calculates the amount of ingredients needed according to the number of people eating the particular recipe.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+      <summary>3: Border Detector for Fisherman</summary>
+      <img src="images/Fisherman.png" alt="Border Detector for Fisherman" />
+      <p class="product-description">
+        As we all have noticed that Indian (especially Rameshwaram) fishermen are being arrested by the neighbouring countrymen for UNKNOWINGLY CROSSING the national boundary. We felt the need to find a solution for this problem. Sea Border Detector is an app that would display the national boundaries, indicate user's location, and raise alarms on getting closer to the boundary.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+      <summary>4: Advanced Tour Guide</summary>
+      <img src="images/Tour.png" alt="Advanced Tour Guide" />
+      <p class="product-description">
+        The application displays relevant information regarding the location such as weather, user reviews and gives directions to that place.This application aims to be a virtual tour guide.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+      <summary>5: K-Shop</summary>
+      <img src="images/K Shop.png" alt="K-Shop" />
+      <p class="product-description">
+        This app enables the various users in the Karunya Institute such as staff, faculty and students to register themselves with the app and post the details of their used products to sell. This will help the other people in the Karunya Community to search for the required products and buy them, if they are interested. This app provides an easy to communicate with other communities in Karunya for exchanging information related to selling and buying the used products. Also the app has an option of ‘Request a Requirement’ in which the user can upload their requests according to the need specified in the description so that any user who has the specific product can approach the poster for further proceedings.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+      <summary>6: Stanley on Bible</summary>
+      <img src="images/Bible.png" alt="Stanley on Bible" />
+      <p class="product-description">
+        Stanley On Bible is an Offline Android Application for StanleyOnBible.com.StanleyOnBible.com is a Bible Teaching website with Brother R. Stanley’s written materials under the sections of General Messages, Bible Studies, Sermon Outlines,Doctrinal Essays, Youth Matters, Leaders' Column, Missionary Challenge, etc.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+      <summary>7: Mother Baby Care</summary>
+      <img src="images/Mother.png" alt="Mother Baby Care" />
+      <p class="product-description">
+        Worried about your pregnancy. Hey here is your app. Understand about the prenatal period by using pre delivery option and postnatal to take care of your baby. Use baby Kicks to feel the exciting moments in your pregnancy, those first little flutters of your baby kicking. Prenatal period is divided into three trimesters. Go through the sections of trimesters to have a better understanding about the do’s and don’ts of your pregnancy. You are guided weekly providing fetal images, journal, and weekly tips. Using journals you can enter your mood and notes for the week. Record your sweet pregnancy memories in the journal. The postnatal period tells how to nurture your tweety. Baby wears directs you to a website where you can choose the baby wears. Use reminders to schedule your reminders and set the push notification.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+  <summary>8: Profitness</summary>
+  <img src="images/Profitness.png" alt="Profitness" />
+  <p class="product-description">
+    This is a fitness app that focuses on health-care, diet and healthy habits. It has several modules or functionalities that are as follows:
+    <ul>
+      <li><strong>1.Account Creation</strong> – Reads Name, Height, Weight, Gender and Age of the User.</li>
+      <li><strong>2.Diet Chart</strong> – Creates a Diet plan every day depending on the BMI index of the User.</li>
+      <li><strong>3.BMI Calculator</strong> – Calculates BMI from Weight and Height.</li>
+      <li><strong>4.Explore Food</strong> – Detailed info on types of Healthy Food.</li>
+      <li><strong>5.Personal Enhancer</strong> – Exercises and challenges based on Age and Gender.</li>
+      <li><strong>6.Blood Volume</strong> – Calculates Blood Volume from Height, Weight and Gender.</li>
+      <li><strong>7.Water Intake</strong> – Computes required water intake based on Weight.</li>
+      <li><strong>8.Reminder</strong> – Generates and customizes daily reminders.</li>
+      <li><strong>9.Pedometer</strong> – Tracks steps and calories burned.</li>
+    </ul>
+  </p>
+</details>
+
+
+    <details class="product-dropdown">
+      <summary>9: Coimbatore Bus Guide</summary>
+      <img src="images/Bus.png" alt="Coimbatore Bus Guide" />
+      <p class="product-description">
+        It’s a big problem for any new resident, who do not know the local language in any city to follow the bus systems and know which bus to take when and where to, at what time.“Coimbatore City Bus Route Guide” will render a solution to this problem and lend a helping hand to the troubled citizens, thus making their journey easier and saving a tremendous amount of time. This is an offline application. (No internet connectivity is needed) All the bus routes has been loaded in the database.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+      <summary>10: It’s an android mobile application that reminds the patient’s of their dosage timings through alarm ringing system.</summary>
+      <img src="images/Medication.png" alt="It’s an android mobile application that reminds the patient’s of their dosage timings through alarm ringing system." />
+      <p class="product-description">
+        It’s an android mobile application that reminds the patient’s of their dosage timings through alarm ringing system.
+      </p>
+    </details>
+
+    <details class="product-dropdown">
+      <summary>11: Smart Driver Assist</summary>
+      <img src="images/Driver.png" alt="Smart Driver Assist" />
+      <p class="product-description">
+        Smart Driver Assistance System is an assistance to the driver and it will give alert to the driver during critical situations .It will play songs,jokes and gives alarm sound,if driver is feeling sleepy or tired .Inputs may be taken from eye blinking and voice by driver .Through this road accidents can be avoided positively and also the traffic instruction can be given to the driver.
+      </p>
+    </details>
+  </main>
+
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+</body>
+</html>
