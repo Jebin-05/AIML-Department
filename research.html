@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Centers | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f8fb;
+    color: #002244;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Ticker */
+  .ticker {
+    background-color: #002244;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .ticker a {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 30s linear infinite;
+    color: #ffd700;
+    text-decoration: none;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Header & Footer */
+  header, footer {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  footer {
+    background-color: #002244;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dept-logo {
+    height: 50px;
+    margin-right: 15px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #002244;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+  }
+
+  nav a:hover,
+  nav a[aria-current="page"] {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 35px;
+    left: 0;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 1000;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+    color: #002244;
+    font-weight: 500;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Main & Research Dropdown */
+  main {
+    width: 100%;
+    padding: 50px 5%;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+  }
+
+  .highlight-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #002244;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 50px;
+  }
+
+  .highlight-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 6px;
+    background: linear-gradient(90deg, #ffd700, #ffcc00);
+    border-radius: 10px;
+  }
+
+  details.research-dropdown {
+    margin: 20px auto;
+    max-width: 1000px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff, #e0f7fa);
+    padding: 25px 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, background 0.3s;
+  }
+
+  details.research-dropdown:hover {
+    transform: scale(1.01);
+  }
+
+  summary {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #003366;
+    cursor: pointer;
+    outline: none;
+  }
+
+  details[open] summary {
+    margin-bottom: 20px;
+  }
+
+  .dropdown-body {
+    animation: fadeIn 0.4s ease-in-out;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: #fff;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  thead {
+    background: linear-gradient(to right, #e0f7fa, #ffd700);
+    color: #002244;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  ul li {
+    margin-bottom: 5px;
+  }
+
+  h3, h4, h5 {
+    color: #003366;
+    border-bottom: 4px solid #ffd700;
+    padding-bottom: 8px;
+    margin-top: 30px;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    main {
+      padding: 30px 15px;
+    }
+    .highlight-title {
+      font-size: 1.6rem;
+    }
+    summary {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+         <li><a href="faculty.html">Faculty</a></li>
+        <li class="dropdown">
+          <a href="#">Academics</a>
+          <div class="dropdown-content">
+            <a href="programmes.html">Programmes Offered</a>
+            <a href="curriculum.html">Curriculum</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Facilities</a>
+          <div class="dropdown-content">
+            <a href="research.html" aria-current="page">Research Centers</a>
+            <a href="lab.html">Laboratories</a>
+          </div>
+        </li>
+        <li><a href="placements.html">Placements</a></li>
+        <li class="dropdown">
+          <a href="#">Innovations</a>
+          <div class="dropdown-content">
+            <a href="patents.html">Patents</a>
+            <a href="products.html">Products</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Research</a>
+          <div class="dropdown-content">
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+          </div>
+        </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="highlight-title">Research Centres</div>
+
+    <details class="research-dropdown">
+  <summary>CISCO Networking Academy</summary>
+  <div class="dropdown-body">
+    <h3 style="color:#003366; border-bottom: 4px solid #ffd700; padding-bottom: 5px;">CISCO Networking Academy</h3>
+    <p>
+      The Division of Computer Science and Engineering has signed an MoU with CISCO Systems, Bangalore. Since 2007, it has offered the CCNA certification providing hands-on networking experience across four industry-relevant modules:
+    </p>
+    <ul>
+      <li>Networking Fundamentals</li>
+      <li>Routing Protocols and Concepts</li>
+      <li>LAN Switching and Wireless</li>
+      <li>Accessing the WAN</li>
+    </ul>
+
+    <h3 style="color:#003366; border-bottom: 4px solid #ffcc00; padding-bottom: 5px;">Laboratory Infrastructure</h3>
+    <table border="1" cellpadding="10" style="width:100%; border-collapse: collapse; margin-bottom: 20px; background:#fff;">
+      <thead style="background:linear-gradient(to right,#e0f7fa,#ffd700);">
+        <tr>
+          <th>Sl. No</th>
+          <th>Item</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>CISCO 2811 Router</td><td>4</td></tr>
+        <tr><td>2</td><td>CISCO 2811—SEC/K9 Router</td><td>2</td></tr>
+        <tr><td>3</td><td>2960 Catalyst Switch</td><td>5</td></tr>
+        <tr><td>4</td><td>Linksys Wireless Broadband Router</td><td>3</td></tr>
+        <tr><td>5</td><td>Adaptive Security Appliances ASA5510</td><td>2</td></tr>
+        <tr><td>6</td><td>C3750X — Layer 3 Switch</td><td>1</td></tr>
+        <tr><td>7</td><td>IOTF Trainer Kit</td><td>2</td></tr>
+        <tr><td>8</td><td>CISCO SG350 28 Port Switch</td><td>1</td></tr>
+        <tr><td>9</td><td>Sparkfun Inventor Kit</td><td>1</td></tr>
+        <tr><td>10</td><td>Raspberry Pi Kit</td><td>1</td></tr>
+        <tr><td rowspan="3">11</td><td>Desktop Computers (Pentium 4, 1GB RAM, XP, 500MB HDD)</td><td>9</td></tr>
+        <tr><td>Desktop Computers (Core i5, 4GB RAM, Win 8, 1TB HDD)</td><td>8</td></tr>
+        <tr><td>Desktop Computers (Core i5, 8GB RAM, Win 8, 1TB HDD)</td><td>12</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="color:#003366; border-bottom: 4px solid #ffd700; padding-bottom: 5px;">Workshops and Trainings</h3>
+    <table border="1" cellpadding="10" style="width:100%; border-collapse: collapse; background:#fff;">
+      <thead style="background:linear-gradient(to right,#e0f7fa,#ffcc00);">
+        <tr>
+          <th>Sl. No</th>
+          <th>Event Name</th>
+          <th>Date</th>
+          <th>Resource Person</th>
+          <th>No. of Participants</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Fog & Cloud Computing CCNA</td>
+          <td>23–24 Feb 2018</td>
+          <td>Dr. Pethuru Raj, Dr. Ganesh Neelakanta Iyar</td>
+          <td>60</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Networking Skills using Packet Tracer</td>
+          <td>8–9 Sep 2017</td>
+          <td>Dr. J. Immanuel John Raja</td>
+          <td>65</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>IP Addressing and Subnetting</td>
+          <td>29 Jan 2018</td>
+          <td>Dr. J. Immanuel John Raja</td>
+          <td>15</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="color:#003366; border-bottom: 4px solid #ffcc00; padding-bottom: 5px;">Certification Training Records</h3>
+    <table border="1" cellpadding="10" style="width:100%; border-collapse: collapse; background:#fff;">
+      <thead style="background:linear-gradient(to right,#fefcea,#f1da36);">
+        <tr>
+          <th>S. No</th>
+          <th>Course</th>
+          <th>Instructor(s)</th>
+          <th>Year</th>
+          <th>Students Trained</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>CCENT</td><td>Dr. Immanuel, Mrs. Getzi, Ms. Devapriya</td><td>2015–2018</td><td>20, 23, 17</td></tr>
+        <tr><td>2</td><td>CCNA</td><td>Dr. Immanuel, Mrs. Getzi</td><td>2015–2018</td><td>20, 23, 17</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="color:#003366; border-bottom: 4px solid #ffd700; padding-bottom: 5px;">PG Projects and Publications</h3>
+    <p><strong>Selected PG Projects (2015–2017)</strong></p>
+    <ul style="columns: 2; column-gap: 40px;">
+      <li>Health Monitoring with Load Balancing</li>
+      <li>QoS for MAC Protocol in WSN</li>
+      <li>Fault Node Recovery Algorithm</li>
+      <li>Self-learning WSN with Transfaulty Nodes</li>
+      <li>Sinkhole Detection in WSN</li>
+      <li>Fuzzy-based Relay in WSN</li>
+      <li>Reliable Convergecast Scheme</li>
+      <li>Dynamic Sink Mobility</li>
+      <li>Real Time Bus Tracking with Raspberry Pi</li>
+    </ul>
+
+    <p><strong>Publications</strong></p>
+    <ul>
+      <li>"Resource-aware VM Migration in IoT Cloud" - Future Generation Comp. Systems, 2018</li>
+      <li>"Empowering SDN-based IoT" - ICBCC 18, Springer</li>
+      <li>"Route Aware VM Migration in Datacenter" - ICICCT 18, IEEE</li>
+      <li>"Virtual Force Particle Swarm Optimization" - IJAE Research, 2015</li>
+      <li>"Map-reduce for Self-organizing Networks" - IJAE Research, 2015</li>
+      <li>"TCP-PLDR for Mobile Ad Hoc Networks" - Ad Hoc & Sensor Wireless Networks, 2015</li>
+    </ul>
+
+    <h3 style="color:#003366; border-bottom: 4px solid #ffd700; padding-bottom: 5px;">Student Placements</h3>
+    <ul style="columns: 2; column-gap: 40px;">
+      <li>David A. Reddy - Hyundai Mobis</li>
+      <li>Celesta - Nutanix</li>
+      <li>Rohith Raj - Solartis</li>
+      <li>Arputham - Hinduja Global</li>
+      <li>Arul - Iota Labs</li>
+      <li>Bavatharini G - Netapps</li>
+      <li>Rajyashri - Nutanix</li>
+      <li>Princelly Jesu A - CSS Corp</li>
+      <li>Ajayson N. - CSS Corp</li>
+      <li>Dinesh Jeffrine - CSS Corp</li>
+    </ul>
+
+    <h3 style="color:#003366; border-bottom: 4px solid #ffcc00; padding-bottom: 5px;">Student & Faculty Certification</h3>
+    <table border="1" cellpadding="10" style="width:100%; border-collapse: collapse; background:#fff;">
+      <thead style="background:linear-gradient(to right,#f9f9a1,#ffd700);">
+        <tr>
+          <th>Sl. No</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Certification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>UR16CS219</td><td>Lingareddy Reddy</td><td>CCENT</td></tr>
+        <tr><td>2</td><td>UR12CS104</td><td>Joshin Johnson</td><td>CCNA</td></tr>
+        <tr><td>3</td><td>UR11EC064</td><td>Joshin John</td><td>CCNA</td></tr>
+        <tr><td>4</td><td>UR10EC259</td><td>Shrikant Venkatesh</td><td>CCNA</td></tr>
+        <tr><td>5</td><td>1160</td><td>Deva Priya. I</td><td>CCENT</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+
+    <details class="research-dropdown">
+  <summary>SUSE Centre of Excellence for Cloud Computing</summary>
+  <div class="dropdown-body">
+    <h3 style="color:#003366; border-bottom: 4px solid #ffd700; padding-bottom: 5px;">SUSE Centre of Excellence for Cloud Computing</h3>
+    <p>
+      The Division of Computer Science and Engineering signed a Memorandum of Agreement with the SUSE Academic Program, SUSE Software Solutions, Ireland, on 29th November 2019.
+    </p>
+    <p>
+      This initiative builds upon the division's earlier collaboration with Novell in 2010, through which the SUSE Certified Administrator (SCA) program in Enterprise Linux was first introduced. In 2014, Novell began supporting the M.Tech CSE program, leading to the creation of the SUSE Centre of Excellence for Cloud Computing at Karunya Institute of Technology and Sciences.
+    </p>
+    <h4 style="color:#002244; border-bottom: 3px solid #ffcc00; padding-bottom: 5px;">Key Benefits of the Strategic Partnership</h4>
+    <ul>
+      <li>Certification training in Linux by SUSE Certified faculty/staff</li>
+      <li>Curriculum-aligned with industry trends for B.Tech and M.Tech students</li>
+      <li>Access to the online SUSE Academy for students and faculty</li>
+      <li>Use of SUSE products for lab/educational purposes</li>
+      <li>Access to training materials, development tools, support forums, and knowledge base</li>
+      <li>Support for branding, signage, and Coimbatore-based partner training sessions</li>
+    </ul>
+
+    <h4 style="color:#003366; border-bottom: 3px solid #ffd700; padding-bottom: 5px;">Centre Infrastructure</h4>
+    <table border="1" cellpadding="10" style="width:100%; border-collapse: collapse; background:#fff;">
+      <thead style="background:linear-gradient(to right,#e0f7fa,#ffd700);">
+        <tr>
+          <th>Sl. No</th>
+          <th>Item Description</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Supermicro Super Storage Server</td><td>1</td></tr>
+        <tr><td>2</td><td>Super Micro Server (8 Blades)</td><td>1</td></tr>
+        <tr><td>3</td><td>Dell Power Edge R220 1U Rack Server</td><td>1</td></tr>
+        <tr><td>4</td><td>Dell Power Edge R730 Server</td><td>1</td></tr>
+        <tr><td>5</td><td>APW Smart Rack 42U</td><td>1</td></tr>
+        <tr><td>6</td><td>CISCO SG 92-24-AS-24 Port Switch</td><td>1</td></tr>
+        <tr><td>7</td><td>CISCO SG-300 28 Port Managed Switch</td><td>2</td></tr>
+        <tr><td>8</td><td>CISCO C1921 Modular Router (2 GE)</td><td>1</td></tr>
+        <tr><td>9</td><td>Aruba Wireless Access Point</td><td>1</td></tr>
+        <tr><td>10</td><td>AP-220 Series Mount Kit</td><td>1</td></tr>
+        <tr><td>11</td><td>Dell Optiplex 3020 Desktop</td><td>21</td></tr>
+        <tr><td>12</td><td>HP Desktop Computers</td><td>7</td></tr>
+        <tr><td>13</td><td>Raspberry Pi 3 Model B with Kit</td><td>2</td></tr>
+        <tr><td>14</td><td>Raspberry Pi Foundation 7" Touch Display</td><td>1</td></tr>
+        <tr><td>15</td><td>Raspberry Pi Barebone Touch Screen Display Case</td><td>1</td></tr>
+        <tr><td>16</td><td>DHT11 Temperature & Humidity Sensor</td><td>1</td></tr>
+        <tr><td>17</td><td>SecuGen Hamster Pro20 Fingerprint Scanner</td><td>1</td></tr>
+        <tr><td>18</td><td>Fisheye V380 Panoramic Camera</td><td>1</td></tr>
+        <tr><td>19</td><td>Transcend External DVD Writer</td><td>1</td></tr>
+        <tr><td>20</td><td>Sony Projector VPL-EX241</td><td>2</td></tr>
+        <tr><td>21</td><td>UPS</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+    <details class="research-dropdown">
+  <summary>IBM Big Data software Centre of Excellence</summary>
+  <div class="dropdown-body">
+    <h3 style="color:#003366; border-bottom: 4px solid #ffd700; padding-bottom: 5px;">IBM Big Data Software Centre of Excellence</h3>
+    <p>
+      The IBM Big Data Software Centre of Excellence is a strategic initiative to provide students and faculty with expertise in Big Data Analytics. Established in collaboration with IBM India Pvt Ltd in August 2015, this center focuses on developing industry-ready graduates through cutting-edge IBM tools and experiential learning.
+    </p>
+
+    <h4 style="color:#002244; border-bottom: 3px solid #ffcc00; padding-bottom: 5px;">Research Focus Areas</h4>
+    <ul>
+      <li>Bio-medical Text Mining</li>
+      <li>Analytics in Surveillance Videos</li>
+      <li>Social Media Data Analytics</li>
+      <li>Drug Data Analysis</li>
+      <li>Predictive Analytics for Cancer</li>
+      <li>Fraudulent Data Analytics</li>
+      <li>Traffic Data Analytics</li>
+    </ul>
+
+    <h4 style="color:#003366; border-bottom: 3px solid #ffd700; padding-bottom: 5px;">Offerings of IBM CoE</h4>
+    <ul>
+      <li>Industry Certified Courses & Internships</li>
+      <li>Entrepreneurship Support from Industry Partners</li>
+      <li>Faculty Development Programs, Seminars & Webinars</li>
+      <li>Mini, Half-Semester & Full Semester Projects</li>
+      <li>Custom Big Data Curriculum designed in collaboration with IBM</li>
+    </ul>
+
+    <h4 style="color:#002244; border-bottom: 3px solid #ffcc00; padding-bottom: 5px;">Lab Infrastructure</h4>
+    <p><strong>IBM Netezza 100 Appliance:</strong> A high-capacity, cost-effective analytical platform supporting up to 10 TB of user data for fast development and minimal administration.</p>
+
+    <h5 style="margin-top: 15px; color: #003366;">Software Stack Provided by IBM</h5>
+    <ul>
+      <li><strong>DataStage Workgroup</strong> – Data Integration & Transformation</li>
+      <li><strong>BigInsights Enterprise Edition</strong> – Hadoop Data Services</li>
+      <li><strong>Streams Developer Edition</strong> – Real-time Analytics</li>
+    </ul>
+
+    <p>A four-node Hadoop cluster with IBM BigInsight is set up for students and scholars, connected to the Netezza appliance for training and research in real-time analytics.</p>
+
+    <h4 style="color:#003366; border-bottom: 3px solid #ffd700; padding-bottom: 5px;">Certifications & Training</h4>
+    <ul>
+      <li>130+ students trained annually in IBM Certification Courses</li>
+      <li>12 faculty certified in Big Data Analytics and IBM Cloud Application Development</li>
+      <li>Current offering: IBM Cloud Application Developer Certification</li>
+    </ul>
+
+    <h4 style="color:#002244; border-bottom: 3px solid #ffcc00; padding-bottom: 5px;">Notable Highlights</h4>
+    <ul>
+      <li>Students Gabriel and Rinaldo Rex interned at IBM India Pvt Ltd, Bangalore</li>
+      <li>IBM CoE hosts annual "Hackathon" events during Mindkraft</li>
+      <li>2018: 90 students participated in IBM’s "Call for Code" contest on Natural Disasters, submitting 25 unique projects</li>
+    </ul>
+  </div>
+</details>
+
+    <details class="research-dropdown">
+  <summary>Computing Security Research Lab</summary>
+  <div class="dropdown-body">
+    <h3 style="color:#003366; border-bottom: 4px solid #ffd700; padding-bottom: 5px;">Computing Security Research Lab (CSR Lab)</h3>
+    <p>The Computing Security Research Lab (CSR) is a dedicated advanced research centre within the Department of Computer Science and Engineering. It serves as a hub for students, scholars, and faculty to explore key domains including:</p>
+    <ul>
+      <li>Network Security</li>
+      <li>Cloud Security</li>
+      <li>Big Data & IoT Security</li>
+      <li>Software Defined Networks (SDN)</li>
+    </ul>
+
+    <h4 style="color:#002244; border-bottom: 3px solid #ffcc00; padding-bottom: 5px;">Core Activities</h4>
+    <ul>
+      <li>Workshops & Seminars on computing security</li>
+      <li>Research Publications & Project Development</li>
+      <li>Infrastructure Enhancement</li>
+      <li>Curriculum Support for Core Security Labs</li>
+    </ul>
+
+    <h4 style="color:#003366; border-bottom: 3px solid #ffd700; padding-bottom: 5px;">Industry Tie-Up</h4>
+    <p>The CSR Lab has partnered with <strong>EC Council Academia</strong> (Partner ID: <em>EACD17124</em>) to offer cutting-edge certifications and resources for cyber security education.</p>
+
+    <h4 style="color:#002244; border-bottom: 3px solid #ffcc00; padding-bottom: 5px;">Technical Events</h4>
+    <p>Regular hands-on workshops and seminars are conducted by industry-trained professionals on topics such as:</p>
+    <ul>
+      <li>Cyber Forensics</li>
+      <li>Ethical Hacking</li>
+      <li>Open-source Intelligence</li>
+      <li>Deep Learning for Cyber Security</li>
+    </ul>
+
+    <h4 style="color:#003366; border-bottom: 3px solid #ffd700; padding-bottom: 5px;">Research & Publications</h4>
+    <p>The lab is a key contributor to the <strong>Computing Security Research Group</strong> of the department. Since 2014, numerous publications in Scopus-indexed journals and conferences have originated from this lab's research work.</p>
+
+    <h4 style="color:#002244; border-bottom: 3px solid #ffcc00; padding-bottom: 5px;">Lab Infrastructure</h4>
+    <table style="width:100%; border-collapse: collapse; margin-bottom: 20px;">
+      <thead style="background-color:#002244; color:#fff;">
+        <tr>
+          <th style="padding: 10px; border: 1px solid #ccc;">Sl. No</th>
+          <th style="padding: 10px; border: 1px solid #ccc;">Item</th>
+          <th style="padding: 10px; border: 1px solid #ccc;">Description</th>
+          <th style="padding: 10px; border: 1px solid #ccc;">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ccc;">1</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">Desktop Computer</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">Dell</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">20</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ccc;">2</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">Desktop Computer</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">Apple iMac</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">2</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ccc;">3</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">Server</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">Power Edge R430</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="color:#003366; border-bottom: 3px solid #ffd700; padding-bottom: 5px;">Academic Support</h4>
+    <p>The lab's infrastructure supports core curriculum lab sessions and projects for PG students, and its syllabus is continuously updated by the research team to stay aligned with emerging technologies in cybersecurity.</p>
+  </div>
+</details>
+
+  </main>
+
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laboratories | Karunya Institute of Technology & Sciences</title>
+  <link rel="icon" type="image/png" href="images/Logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: #002244;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .ticker {
+    background-color: #002244;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .ticker a {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 30s linear infinite;
+    color: #ffd700;
+    text-decoration: none;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .dept-logo {
+    height: 50px;
+    margin-right: 15px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #002244;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+  }
+
+  nav a:hover,
+  nav a[aria-current="page"] {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 35px;
+    left: 0;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 1000;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+    color: #002244;
+    font-weight: 500;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f0f0f0;
+  }
+
+  main {
+    padding: 50px 5%;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    flex: 1;
+  }
+
+  .highlight-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #002244;
+    position: relative;
+  }
+
+  .highlight-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 6px;
+    background: linear-gradient(90deg, #ffd700, #ffd700);
+    border-radius: 10px;
+  }
+
+  details.lab-dropdown {
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #e3f2fd;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+
+  details.lab-dropdown[open] {
+    background-color: #d0f0fc;
+  }
+
+  details.lab-dropdown summary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #002244;
+    position: relative;
+    list-style: none;
+    padding-right: 10px;
+  }
+
+  details.lab-dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Yellow underline on hover */
+  details.lab-dropdown summary::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 3px;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  details.lab-dropdown summary:hover::after {
+    width: 100%;
+  }
+
+  .lab-dropdown p,
+  .lab-dropdown ul,
+  .lab-dropdown table {
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  footer {
+    background-color: #002244;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 30px 15px;
+    }
+
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <div class="ticker">
+    <a href="https://admissions.karunya.app/" target="_blank">
+      🎓 Admissions Open for 2025 B.Tech Computer Science and Engineering (Artificial Intelligence) | B.Tech Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+    </a>
+  </div>
+
+  <header>
+    <img src="https://karunya.edu/sites/default/files/logo.png.pagespeed.ce.0ueEiddfEk.png" alt="Dept. of Artificial Intelligence" class="dept-logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+         <li><a href="faculty.html">Faculty</a></li>
+        <li class="dropdown">
+          <a href="#">Academics</a>
+          <div class="dropdown-content">
+            <a href="programmes.html">Programmes Offered</a>
+            <a href="curriculum.html">Curriculum</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Facilities</a>
+          <div class="dropdown-content">
+            <a href="research.html">Research Centers</a>
+            <a href="lab.html" aria-current="page">Laboratories</a>
+          </div>
+        </li>
+        <li><a href="placements.html">Placements</a></li>
+        <li class="dropdown">
+          <a href="#">Innovations</a>
+          <div class="dropdown-content">
+            <a href="patents.html">Patents</a>
+            <a href="products.html">Products</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Research</a>
+          <div class="dropdown-content">
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+          </div>
+        </li>
+        <li><a href="galleries.html">Gallery</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="downloads.html">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  <div class="highlight-title">Laboratories</div>
+
+  <details class="lab-dropdown">
+    <summary>Microsoft Centre for Data Science and Artificial Intelligence</summary>
+    <p>
+      <strong>MoA with Microsoft Corporation, India</strong><br>
+      The Division of Computer Science and Engineering has signed a Memorandum of Agreement (MoA) with Microsoft Corporation, India on <strong>18-12-2020</strong>.
+    </p>
+
+    <p><strong>Objective:</strong></p>
+    <ul style="margin-left: 20px; color: #003366;">
+      <li>Support the Division of Computer Science and Engineering through academic and infrastructure collaboration.</li>
+      <li>Endorse and support UG and PG programmes offered by the University.</li>
+    </ul>
+
+    <p><strong>Supported Programmes:</strong></p>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 10px; background-color: #e3f2fd;">
+      <thead style="background-color: #bbdefb;">
+        <tr>
+          <th style="padding: 12px; border: 1px solid #90caf9;">UG Programmes</th>
+          <th style="padding: 12px; border: 1px solid #90caf9;">PG Programmes</th>
+        </tr>
+      </thead>
+      <tbody style="color: #002244;">
+        <tr>
+          <td style="padding: 10px; border: 1px solid #bbdefb;">
+            <ul style="margin: 0; padding-left: 20px;">
+              <li>B.Tech. Computer Science and Engineering</li>
+              <li>B.Tech. Computer Engineering</li>
+              <li>B.Tech. CSE (Artificial Intelligence)</li>
+              <li>B.Tech. Artificial Intelligence and Data Science</li>
+            </ul>
+          </td>
+          <td style="padding: 10px; border: 1px solid #bbdefb;">
+            <ul style="margin: 0; padding-left: 20px;">
+              <li>M.Tech. Computer Science and Engineering</li>
+              <li>M.Tech. Artificial Intelligence and Data Science</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Additional Benefits:</strong></p>
+    <ul style="margin-left: 20px; color: #003366;">
+      <li>Curriculum integration support for AI & ML technologies.</li>
+      <li>Certification training for both students and faculty.</li>
+      <li>Access to Microsoft tools and software.</li>
+      <li>Support in creating personalized learning paths.</li>
+      <li>Train-the-Trainer programs to empower faculty.</li>
+    </ul>
+  </details>
+
+  <details class="lab-dropdown">
+  <summary>IoT Centre for Artificial Intelligence</summary>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; margin-top: 20px;">
+    <img src="images/lab.jpg" alt="IoT Lab Activities" style="max-width: 100%; width: 480px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+
+    <div style="flex: 1; min-width: 300px;">
+      <p>
+        The <strong>Internet of Things (IoT) Lab</strong> provides an excellent infrastructure for young IT minds to nurture innovative ideas and solve real-world problems aligned with societal needs. It is an ideal learning space built around a hands-on, active environment.
+      </p>
+
+      <p>
+        The primary objective of this lab is to enable students to build smart and intelligent IoT solutions. The lab is well-equipped with tools and devices to provide immersive real-world experiences focusing on:
+        <ul style="margin-left: 20px; color: #003366;">
+          <li>Data ingestion & acquisition</li>
+          <li>Machine Learning</li>
+          <li>Data visualization</li>
+          <li>Mobility and smart integration</li>
+        </ul>
+      </p>
+
+      <p><strong>Facilities Available:</strong></p>
+      <table style="width: 100%; border-collapse: collapse; background-color: #e0f7fa; margin-bottom: 15px;">
+        <tbody style="color: #002244;">
+          <tr>
+            <td style="padding: 10px; border: 1px solid #81d4fa;">Raspberry Pi Trainer Kits</td>
+            <td style="padding: 10px; border: 1px solid #81d4fa;">Arduino Boards</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #81d4fa;">Basic Sensors (Heartbeat, Air Quality, Fire)</td>
+            <td style="padding: 10px; border: 1px solid #81d4fa;">LoRa WAN Setup</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #81d4fa;">RFID Tags & Digital Controllers</td>
+            <td style="padding: 10px; border: 1px solid #81d4fa;">Desktop Systems for Hands-on Work</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Lab sessions are conducted by <strong>industry-trained faculty</strong> to ensure practical knowledge transfer. Two Faculty Development Programs (FDPs) have been conducted:
+      </p>
+      <ul style="margin-left: 20px; color: #003366;">
+        <li>“Internet of Things (IoT) and its Applications” – <em>19/11/2019 & 20/11/2019</em></li>
+        <li>“Industrial IoT Training using LoRa WAN Technology” – <em>06/02/2020 & 07/02/2020</em></li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+
+  <details class="lab-dropdown">
+  <summary>EMURGO Academy for Blockchain Technologies</summary>
+
+  <p><strong>MoA with EMURGO and Certification Course on Blockchain</strong></p>
+  <p>
+    On <strong>November 25, 2019</strong>, Karunya Institute of Technology and Sciences signed an MoA with <strong>EMURGO Academy</strong>, the education wing of EMURGO.
+  </p>
+
+  <p><strong>Objective:</strong></p>
+  <ul style="margin-left: 20px; color: #003366;">
+    <li>To provide students with certification training in Blockchain technology.</li>
+    <li>Internship opportunities with EMURGO Academy.</li>
+    <li>Hands-on experience on live Blockchain projects.</li>
+    <li>International exposure through global tech forums.</li>
+    <li>Assist in the development of Blockchain curriculum for academia.</li>
+  </ul>
+
+  <p><strong>Certification Course:</strong></p>
+  <table style="width: 100%; border-collapse: collapse; background-color: #f1f8e9; margin-top: 10px;">
+    <thead style="background-color: #aed581;">
+      <tr>
+        <th style="padding: 12px; border: 1px solid #dce775;">Title of the Course</th>
+        <th style="padding: 12px; border: 1px solid #dce775;">Foundation of Blockchain</th>
+      </tr>
+    </thead>
+    <tbody style="color: #002244;">
+      <tr>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">Objective of the Course</td>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">
+          Provides an in-depth, foundational understanding of blockchain pillars. Learners evaluate tools, practices, and processes powering this disruptive technology.
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">Certificate</td>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">EMURGO Digital Badge</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">Course Content</td>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">
+          Blockchain – What/Why/Future/Transactions/Types, Bitcoin, Cryptocurrency, Consensus Algorithm, DApp, Smart Contracts, Assessment.
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">Industry Demand</td>
+        <td style="padding: 10px; border: 1px solid #dcedc8;">
+          High demand across Banking, Healthcare, Media, Retail, Transport, and Government sectors.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Outcome:</strong></p>
+  <ul style="margin-left: 20px; color: #003366;">
+    <li>Students from II and III year CSE successfully completed the course in the odd semester of AY 2019–20.</li>
+    <li>Two students, <strong>Mr. Surapaneni Arun Sai (URK17CS019)</strong> and <strong>Ms. Lathangi Vemulapalli (URK18CS026)</strong>, secured internships at EMURGO from <strong>11/09/2020 to 18/10/2020</strong>.</li>
+    <li>They gained hands-on proficiency in Ethereum Blockchain protocol, Solidity, Truffle Framework, and Web3 with React.</li>
+  </ul>
+</details>
+
+
+ <details class="lab-dropdown">
+  <summary>Software Product Development Lab</summary>
+
+  <p>
+    The <strong>Software Product Development Lab</strong> of the Division of Computer Science and Engineering was established with the clear objective of encouraging students to develop software as products by following established software engineering principles.
+  </p>
+
+  <p>
+    Students form teams and are actively involved in developing innovative software solutions. This lab offers an environment for product development, group collaboration, technology exploration, self-learning, and project showcases.
+  </p>
+
+  <p><strong>Computing Facilities:</strong></p>
+  <table style="width: 100%; border-collapse: collapse; background-color: #e3f2fd; font-size: 15px;">
+    <thead style="background-color: #bbdefb;">
+      <tr>
+        <th style="padding: 10px; border: 1px solid #90caf9;">S. No.</th>
+        <th style="padding: 10px; border: 1px solid #90caf9;">Name of the Equipment</th>
+        <th style="padding: 10px; border: 1px solid #90caf9;">Quantity</th>
+        <th style="padding: 10px; border: 1px solid #90caf9;">Make</th>
+        <th style="padding: 10px; border: 1px solid #90caf9;">Model</th>
+      </tr>
+    </thead>
+    <tbody style="color: #002244;">
+      <tr><td>1</td><td>Workstation</td><td>2</td><td>Apple</td><td>Apple iMac System</td></tr>
+      <tr><td>2</td><td>Desktop Computer</td><td>6</td><td>Dell</td><td>Optiplex 3020</td></tr>
+      <tr><td>3</td><td>Desktop Computer</td><td>4</td><td>Dell</td><td>UC052-2013 - Optiplex 3020 (4th Gen i5 / 8GB / 500GB)</td></tr>
+      <tr><td>4</td><td>Desktop Computer</td><td>10</td><td>Dell</td><td>Optiplex 5050 SFF - i5 / 16GB RAM / 2TB HDD</td></tr>
+      <tr><td>5</td><td>Desktop Computer</td><td>14</td><td>HP</td><td>HP Compaq DX200 - Pentium IV @3.0GHz / 256MB RAM / 40GB HDD</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Android Applications and Software Products Developed:</strong></p>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #f9fbe7; font-size: 14px;">
+    <thead style="background-color: #dce775;">
+      <tr>
+        <th style="padding: 10px; border: 1px solid #cddc39;">S. No.</th>
+        <th style="padding: 10px; border: 1px solid #cddc39;">Product Name</th>
+        <th style="padding: 10px; border: 1px solid #cddc39;">Product ID</th>
+        <th style="padding: 10px; border: 1px solid #cddc39;">Developer Name(s)</th>
+      </tr>
+    </thead>
+    <tbody style="color: #003300;">
+      <tr><td>1</td><td>Lang Interpret</td><td>SP-11CS-001</td><td>Vinoth Kumar, Ashwin Sundaram, Joshua Nickson, Randy Praveen</td></tr>
+      <tr><td>2</td><td>PenTest</td><td>SP-13CS-001</td><td>Rakesh Pandey, Lin O Latch, Prasanna Sudharsan</td></tr>
+      <tr><td>3</td><td>3D Krafter</td><td>SP-13CS-003</td><td>Abhishek Preman</td></tr>
+      <tr><td>4</td><td>Wi-Fi LinVista</td><td>SP-13CS-004</td><td>Ankit Andrews Watson</td></tr>
+      <tr><td>5</td><td>Ucertify</td><td>SP-13CS-004</td><td>Sheryl Mathre, Sherry Titus, Abinayan David, Jasper</td></tr>
+      <tr><td>6</td><td>LibGovern</td><td>SP-13CS-005</td><td>Jeba Princy</td></tr>
+      <tr><td>7</td><td>Friend Track App</td><td>SP-13CS-006</td><td>Vincent, Praveen, Rohit, Tanuj</td></tr>
+      <tr><td>8</td><td>Bio-Web</td><td>SP-13CS-007</td><td>Vincent, Prav, John Samuel</td></tr>
+      <tr><td>9</td><td>JSearch</td><td>SP-14IT-002</td><td>Ananda Raj, Jefferson Andrew, John Samuel</td></tr>
+      <tr><td>10</td><td>Bio-LSoft</td><td>SP-14IT-003X</td><td>Ananda Raj, Jefferson Andrew, John Samuel</td></tr>
+      <tr><td>11</td><td>CO-PO Assessment System - Mech</td><td>SP-15CS-001</td><td>Akila Agnes, Anitha Angeline</td></tr>
+      <tr><td>12</td><td>CO-PO Assessment System - Civil</td><td>SP-15CS-002</td><td>Akila Agnes, Anitha Angeline</td></tr>
+      <tr><td>13</td><td>Coimbatore Bus Route Guide</td><td>SP-15CS-003</td><td>Robin Sam Moses</td></tr>
+      <tr><td>14</td><td>CO-PO System - Mech (Ver II)</td><td>SP-16CS-001</td><td>Akila Agnes, Anitha Angeline</td></tr>
+      <tr><td>15</td><td>Sea Border Detector</td><td>SP-16CS-003</td><td>Gopalakrishnans</td></tr>
+      <tr><td>16</td><td>Inventory Management System</td><td>SP-16CS-004</td><td>Anitha, Gandham, Suhaas, Daniel</td></tr>
+      <tr><td>17</td><td>Stanley on Bible</td><td>SP-16CS-005</td><td>Immanuel Jebaraj, Joshua J</td></tr>
+      <tr><td>18</td><td>Mother Baby Care</td><td>SP-16CS-006</td><td>Priyanka, Nivethitha, Sandhya, Shaba</td></tr>
+      <tr><td>19</td><td>PITSTOP 2016</td><td>SP-16CS-007</td><td>Utkarsh, Akarsh, Abhijeet</td></tr>
+      <tr><td>20</td><td>Division of CST Website</td><td>SP-16CS-008</td><td>Junaid Ahmed Fazly</td></tr>
+      <tr><td>21</td><td>Karunya Android App</td><td>SP-16CS-009</td><td>Vamsi Joseph, Jaya Chandra, Anuroop Reddy</td></tr>
+      <tr><td>22</td><td>Benevolence 2K16</td><td>SP-16CS-010</td><td>Jedidiah, Abhijeet, Ujjawal, Kunal, Ashish</td></tr>
+      <tr><td>23</td><td>E-cell Website</td><td>SP-16CS-011</td><td>Anitha Christy, Sonal, Joel</td></tr>
+      <tr><td>24</td><td>Digitization of Land Records</td><td>SP-16CS-012</td><td>Venkatesan, Jedidiah</td></tr>
+      <tr><td>25</td><td>Land Map Navigation App</td><td>SP-16CS-013</td><td>Jemima, Priya, Floura</td></tr>
+      <tr><td>26</td><td>Profitness</td><td>SP-17CS-001</td><td>Rohan, Harsh, Sanketh, Samuel</td></tr>
+      <tr><td>27</td><td>Karunya CSE App</td><td>SP-17CS-002</td><td>Alvin, Allan, Robin, Roosevelt</td></tr>
+      <tr><td>28</td><td>Smart Driver Assist</td><td>SP-17CS-003</td><td>Gladwin, Joshua, Victor</td></tr>
+      <tr><td>29</td><td>EMS Fire</td><td>SP-17CS-004</td><td>Gokul, Akshay, Sreenath, Atul</td></tr>
+      <tr><td>30</td><td>Trail</td><td>SP-17CS-005</td><td>Nitesh, Abishek, Henry, Kelwin</td></tr>
+      <tr><td>31</td><td>YummyApp</td><td>SP-17CS-006</td><td>Cecil, Saurav, Nithin</td></tr>
+      <tr><td>32</td><td>Bus Guide V2.0</td><td>SP-17CS-007</td><td>Mervin, Murphy, Muthu, Samuel</td></tr>
+      <tr><td>33</td><td>Advanced Tour Guide</td><td>SP-18CS-001</td><td>Rohit, Davin, Jovin, Sarath</td></tr>
+      <tr><td>34</td><td>K-Shop</td><td>SP-18CS-002</td><td>D Paul Win Jeba</td></tr>
+      <tr><td>35</td><td>Karunya Courses App</td><td>SP-18CS-003</td><td>Pon Rajesh M</td></tr>
+    </tbody>
+  </table>
+</details>
+
+</main>
+
+
+  <footer>
+    <p>&copy; Division of AIML, Karunya Institute of Technology & Sciences</p>
+  </footer>
+</body>
+</html>
